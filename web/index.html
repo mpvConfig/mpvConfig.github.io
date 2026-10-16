@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b12" />
+    <meta
+      name="description"
+      content="mpv.config — 跨平台开箱即用的 mpv 配置、现代主题与强大菜单。"
+    />
+    <title>
+      mpv.config — The configuration file of the mpv player supports Windows,
+      macOS, Linux & Multiple shaders, Anime4K/FSRCNNX/CuNNy/ArtCNN |
+      mpv播放器配置整合包懒人版&液态玻璃主题皮肤(theme | skin)
+      轻量级/支持全网弹幕/在线字幕/插帧超帧超分画质Anime4K
+      /进度条预览/可视化均衡器/360°VR
+    </title>
+    <style>
+      :root {
+        --bg: #090a10;
+        --panel: #11131d;
+        --panel2: #171925;
+        --text: #f5f5fa;
+        --muted: #a5a8ba;
+        --line: rgba(255, 255, 255, 0.11);
+        --purple: #a78bfa;
+        --cyan: #6ee7f9;
+        --green: #a3e635;
+        --max: 1160px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(
+            ellipse at 50% -15%,
+            rgba(124, 58, 237, 0.2),
+            transparent 42%
+          ),
+          var(--bg);
+        color: var(--text);
+        font: 15px/1.65 Inter, ui-sans-serif, system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+      }
+      .wrap {
+        width: min(var(--max), calc(100% - 44px));
+        margin: auto;
+      }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(9, 10, 16, 0.78);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-weight: 750;
+        letter-spacing: -0.04em;
+        font-size: 19px;
+        white-space: nowrap;
+      }
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border: 1px solid #55506c;
+        border-radius: 11px;
+        background: linear-gradient(145deg, #28203d, #10121b);
+        color: #d8c8ff;
+      }
+      .navlinks {
+        display: flex;
+        gap: 24px;
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .navlinks a:hover {
+        color: white;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .lang {
+        background: transparent;
+        color: #ddd;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 11px;
+        cursor: pointer;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 11px 16px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        font-size: 13px;
+        font-weight: 700;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: #f5f2ff;
+        color: #171020;
+      }
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.055);
+        border-color: var(--line);
+        color: #f5f5fa;
+      }
+      .hero {
+        padding: 92px 0 68px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(167, 139, 250, 0.3);
+        background: rgba(139, 92, 246, 0.09);
+        color: #d4c4ff;
+        padding: 6px 12px;
+        border-radius: 99px;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 12px var(--green);
+      }
+      h1 {
+        font-size: clamp(42px, 7vw, 78px);
+        line-height: 1.04;
+        letter-spacing: -0.065em;
+        margin: 23px auto 20px;
+        max-width: 900px;
+        font-weight: 800;
+      }
+      h1 .grad {
+        background: linear-gradient(100deg, #f6f4ff 15%, #c4b5fd 52%, #67e8f9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p {
+        color: var(--muted);
+        font-size: clamp(15px, 2vw, 18px);
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .hero-cta {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin: 29px 0 25px;
+        flex-wrap: wrap;
+      }
+      .pills {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 38px;
+      }
+      .pill {
+        font-size: 11px;
+        color: #c5c6d2;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.035);
+        padding: 5px 10px;
+        border-radius: 8px;
+      }
+      .hero-shot {
+        position: relative;
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 8px;
+        border-radius: 19px;
+        background: linear-gradient(
+          135deg,
+          rgba(167, 139, 250, 0.55),
+          rgba(110, 231, 249, 0.1) 55%,
+          rgba(255, 255, 255, 0.13)
+        );
+        box-shadow: 0 25px 100px rgba(94, 55, 181, 0.2);
+      }
+      .hero-shot:before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 12px;
+        background: #151520;
+      }
+      .hero-shot img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+      .hero-caption {
+        color: #777b91;
+        font-size: 11px;
+        margin-top: 13px;
+      }
+      .section {
+        padding: 83px 0;
+      }
+      .section-head {
+        max-width: 690px;
+        margin-bottom: 34px;
+      }
+      .kicker {
+        color: #b8a2ff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .section h2 {
+        font-size: clamp(30px, 4vw, 47px);
+        letter-spacing: -0.05em;
+        line-height: 1.13;
+        margin: 12px 0;
+      }
+      .section-head p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .compare-grid {
+        display: block;
+      }
+      .compare-card,
+      .theme-card,
+      .feature,
+      .summary-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.055),
+          rgba(255, 255, 255, 0.018)
+        );
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .compare-card {
+        padding: 17px;
+        margin-bottom: 17px;
+      }
+      .compare-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 13px;
+      }
+      .compare-top h3 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .compare-top span {
+        color: #aaa2c9;
+        font-size: 11px;
+        border: 1px solid #39304f;
+        border-radius: 7px;
+        padding: 4px 7px;
+      }
+      .compare {
+        --split: 50%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 11px;
+        aspect-ratio: 16/9;
+        background: #191a23;
+        isolation: isolate;
+      }
+      .compare img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+      }
+      .compare .after {
+        clip-path: inset(0 0 0 var(--split));
+      }
+      .compare .divider-line {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        bottom: 0;
+        left: var(--split);
+        width: 2px;
+        background: #fff;
+        transform: translateX(-1px);
+        box-shadow: 0 0 0 1px #0004;
+        pointer-events: none;
+      }
+      .compare .handle {
+        position: absolute;
+        z-index: 4;
+        left: var(--split);
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 38px;
+        height: 38px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: rgba(15, 15, 22, 0.7);
+        display: grid;
+        place-items: center;
+        color: white;
+        pointer-events: none;
+        box-shadow: 0 3px 18px #0007;
+      }
+      .compare input {
+        position: absolute;
+        z-index: 5;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: ew-resize;
+      }
+      .compare-label {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        background: rgba(5, 6, 10, 0.72);
+        backdrop-filter: blur(8px);
+        font-size: 10px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        color: #fff;
+      }
+      .compare-label.left {
+        left: 10px;
+      }
+      .compare-label.right {
+        right: 10px;
+      }
+      .compare-note {
+        color: var(--muted);
+        font-size: 12px;
+        margin: 12px 1px 0;
+      }
+      .theme-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .theme-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-bottom: 1px solid var(--line);
+      }
+      .theme-card img {
+        cursor: zoom-in;
+        transition: filter 0.22s, transform 0.3s;
+      }
+      .theme-card:hover img {
+        filter: brightness(0.82);
+      }
+      .theme-card .theme-image-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .theme-card .theme-image-wrap:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(7, 8, 14, 0);
+        opacity: 0;
+        transition: opacity 0.2s, background 0.2s;
+        pointer-events: none;
+      }
+      .theme-card:hover .theme-image-wrap:after {
+        content: "⌕";
+        font-family: Arial, sans-serif;
+        font-size: 58px;
+        font-weight: 300;
+        color: white;
+        text-shadow: 0 2px 20px #000;
+        opacity: 1;
+        background: rgba(7, 8, 14, 0.12);
+      }
+      .theme-card:hover .theme-image-wrap:before {
+        opacity: 1;
+      }
+      .theme-card .theme-image-wrap {
+        cursor: zoom-in;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(3, 4, 8, 0.94);
+        backdrop-filter: blur(16px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox img {
+        display: block;
+        max-width: 96vw;
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 18px 80px #0009;
+        cursor: zoom-out;
+      }
+      .lightbox-close {
+        position: absolute;
+        right: 24px;
+        top: 18px;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .lightbox-caption {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 14px;
+        text-align: center;
+        color: #d1d1df;
+        font-size: 12px;
+      }
+      body.lightbox-open {
+        overflow: hidden;
+      }
+      @media (max-width: 600px) {
+        .lightbox {
+          padding: 12px;
+        }
+        .lightbox img {
+          max-width: 98vw;
+          max-height: 82vh;
+        }
+        .lightbox-close {
+          right: 12px;
+          top: 12px;
+        }
+      }
+      .theme-info {
+        padding: 17px;
+      }
+      .theme-info h3 {
+        margin: 0 0 5px;
+        font-size: 16px;
+      }
+      .theme-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .theme-label {
+        display: inline-block;
+        margin-top: 12px;
+        color: #c4b5fd;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .menu-layout {
+        display: grid;
+        grid-template-columns: 0.82fr 1.18fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .menu-copy h2 {
+        margin-top: 10px;
+      }
+      .menu-copy > p {
+        color: var(--muted);
+      }
+      .feature-list {
+        display: grid;
+        gap: 13px;
+        margin-top: 25px;
+      }
+      .feature {
+        padding: 14px;
+        display: flex;
+        gap: 13px;
+        align-items: flex-start;
+      }
+      .feature-icon {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: rgba(167, 139, 250, 0.13);
+        color: #c7b7ff;
+        font-size: 16px;
+      }
+      .feature h3 {
+        font-size: 13px;
+        margin: 0 0 3px;
+      }
+      .feature p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .menu-image {
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #10111a;
+      }
+      .menu-image img {
+        display: block;
+        width: 100%;
+        border-radius: 11px;
+      }
+      .menu-image figcaption {
+        font-size: 11px;
+        color: #8d90a4;
+        padding: 10px 5px 3px;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+      .summary-card {
+        padding: 22px;
+      }
+      .summary-card .num {
+        font-size: 12px;
+        color: #b7a2ff;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+      .summary-card h3 {
+        font-size: 17px;
+        margin: 11px 0 7px;
+      }
+      .summary-card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .install {
+        margin-top: 22px;
+        border: 1px solid rgba(167, 139, 250, 0.22);
+        border-radius: 18px;
+        padding: 26px;
+        background: radial-gradient(
+            ellipse at 100% 0,
+            rgba(139, 92, 246, 0.16),
+            transparent 50%
+          ),
+          var(--panel);
+      }
+      .install h3 {
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+      .install p {
+        color: var(--muted);
+        margin: 0 0 18px;
+        font-size: 13px;
+      }
+      .install-steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .step {
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+      }
+      .step b {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+      .step span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 0;
+        color: #85899e;
+        font-size: 12px;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 17px;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      @media (max-width: 850px) {
+        .navlinks {
+          display: none;
+        }
+        .actions {
+          margin-left: auto;
+        }
+        .hero {
+          padding-top: 65px;
+        }
+        .menu-layout {
+          grid-template-columns: 1fr;
+        }
+        .menu-image {
+          order: -1;
+        }
+        .theme-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .theme-card:last-child {
+          grid-column: 1/-1;
+          max-width: calc(50% - 9px);
+        }
+      }
+      @media (max-width: 600px) {
+        .wrap {
+          width: min(100% - 28px, var(--max));
+        }
+        .nav {
+          height: 64px;
+          gap: 10px;
+        }
+        .brand {
+          font-size: 16px;
+        }
+        .brand-mark {
+          width: 30px;
+          height: 30px;
+        }
+        .actions {
+          gap: 7px;
+        }
+        .lang {
+          padding: 7px 8px;
+          font-size: 12px;
+        }
+        .actions .btn {
+          padding: 8px 10px;
+          font-size: 11px;
+        }
+        .hero {
+          padding: 55px 0 45px;
+        }
+        h1 {
+          font-size: 43px;
+        }
+        .hero-shot {
+          padding: 5px;
+          border-radius: 13px;
+        }
+        .hero-shot:before {
+          inset: 5px;
+        }
+        .section {
+          padding: 59px 0;
+        }
+        .compare-grid,
+        .summary-grid,
+        .install-steps {
+          grid-template-columns: 1fr;
+        }
+        .theme-grid {
+          grid-template-columns: 1fr;
+        }
+        .theme-card:last-child {
+          grid-column: auto;
+          max-width: none;
+        }
+        .compare-card {
+          padding: 12px;
+          margin-bottom: 18px;
+        }
+        .section h2 {
+          font-size: 34px;
+        }
+        .footer-inner {
+          flex-direction: column;
+        }
+        .pills {
+          margin-bottom: 27px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap nav">
+        <a
+          class="brand"
+          href="https://github.com/akFace/mpv.config"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub repository"
+          ><span class="brand-mark">▶</span
+          ><span>mpv<span style="color: #b9a5ff">.config</span></span></a
+        >
+        <nav class="navlinks">
+          <a href="#features" data-i18n="navFeatures">功能特色</a
+          ><a href="#compare" data-i18n="navCompare">画质对比</a
+          ><a href="#themes" data-i18n="navThemes">主题</a
+          ><a href="#menu" data-i18n="navMenu">菜单</a
+          ><a
+            href="https://akface.github.io/mpv.config/docs/"
+            target="_blank"
+            rel="noreferrer"
+            >Docs ↗</a
+          >
+        </nav>
+        <div class="actions">
+          <button class="lang" id="langToggle" type="button">EN / 中文</button
+          ><a
+            class="btn btn-primary"
+            href="https://github.com/akFace/mpv.config/releases"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="download"
+            >↓ 前往下载</a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div class="eyebrow">
+            <span class="dot"></span
+            ><span data-i18n="eyebrow">为 mpv 打造的完整体验</span>
+          </div>
+          <h1 data-i18n-html="heroTitle">
+            让每一帧，<span class="grad">更出色。</span>
+          </h1>
+          <p data-i18n="heroDesc">
+            一套开箱即用的 mpv 配置：现代化主题、智能右键菜单、Anime4K
+            超分与常用插件。轻量、灵活，Windows / macOS / Linux 全平台适用。
+          </p>
+          <div class="hero-cta">
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/akFace/mpv.config"
+              target="_blank"
+              rel="noreferrer"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                class=""
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                ></path></svg
+              ><span>GitHub</span></a
+            >
+            <a
+              class="btn btn-primary"
+              href="https://github.com/akFace/mpv.config/releases"
+              target="_blank"
+              rel="noreferrer"
+              ><span>↓</span><span data-i18n="getStarted">前往下载</span></a
+            >
+            <a
+              class="btn btn-primary"
+              href="https://pan.quark.cn/s/44d4b871af74"
+              target="_blank"
+              rel="noreferrer"
+              id="quarkDownload"
+              ><span>↓</span><span>整合包下载</span></a
+            >
+            <a
+              class="btn btn-secondary"
+              href="https://akface.github.io/mpv.config/docs/"
+              target="_blank"
+              rel="noreferrer"
+              ><span>⌘</span><span data-i18n="readWiki">安装教程文档</span></a
+            >
+          </div>
+          <div class="pills">
+            <span class="pill">mpv 0.40+</span
+            ><span class="pill">Windows · macOS · Linux</span
+            ><span class="pill">LGPL-2.1</span
+            ><span class="pill" data-i18n="pillOpen">开源 · 多主题</span>
+          </div>
+          <div class="hero-shot">
+            <img src="images/main.png" alt="mpv.config 主界面预览" />
+          </div>
+          <div class="hero-caption" data-i18n="heroCaption">
+            简洁无边框界面 · 播放器与配置分离 · 为日常观影而设计
+          </div>
+        </div>
+      </section>
+      <section class="section" id="compare">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="kicker" data-i18n="compareKicker">
+              REAL-TIME UPSCALING
+            </div>
+            <h2 data-i18n="compareTitle">拖动滑块，感受画质变化。</h2>
+            <p data-i18n="compareDesc">
+              视频增强超分功能实时提升画质，对比原始画面与 Anime4K HQ
+              处理后的效果。左右拖动中间的控制柄，查看细节差异。
+            </p>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <div class="compare-top">
+                <h3>720p <span data-i18n="sourceLabel">原始画面</span></h3>
+                <span>Anime4K HQ</span>
+              </div>
+              <div class="compare" style="--split: 50%">
+                <img src="images/720p.jpg" alt="720p 原始画面" /><img
+                  class="after"
+                  src="images/720p-Ani4kHQ.jpg"
+                  alt="720p Anime4K HQ 画面"
+                /><span class="compare-label left">720p</span
+                ><span class="compare-label right">Anime4K HQ</span>
+                <div class="divider-line"></div>
+                <div class="handle">↔</div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  aria-label="720p 画面对比滑块"
+                />
+              </div>
+              <p class="compare-note" data-i18n="compare720Note">
+                720p → 720p-Ani4kHQ：实时超分，提升线条与纹理观感。
+              </p>
+            </div>
+            <div class="compare-card">
+              <div class="compare-top">
+                <h3>1080p <span data-i18n="sourceLabel">原始画面</span></h3>
+                <span>Anime4K HQ</span>
+              </div>
+              <div class="compare" style="--split: 50%">
+                <img src="images/1080p.jpg" alt="1080p 原始画面" /><img
+                  class="after"
+                  src="images/1080p-Ani4kHQ.jpg"
+                  alt="1080p Anime4K HQ 画面"
+                /><span class="compare-label left">1080p</span
+                ><span class="compare-label right">Anime4K HQ</span>
+                <div class="divider-line"></div>
+                <div class="handle">↔</div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  aria-label="1080p 画面对比滑块"
+                />
+              </div>
+              <p class="compare-note" data-i18n="compare1080Note">
+                1080p → 1080p-Ani4kHQ：移动滑块，直观看到处理前后的区别。
+              </p>
+            </div>
+            <a
+              class="btn btn-secondary"
+              href="https://akface.github.io/mpv.config/docs/shaders"
+              target="_blank"
+              rel="noreferrer"
+              ><span>⌘</span
+              ><span data-i18n="readMoreShaders">查看更多超分滤镜 ↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="section" id="themes">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="kicker" data-i18n="themesKicker">
+              YOUR LOOK, YOUR WAY
+            </div>
+            <h2 data-i18n="themesTitle">三种风格，随心切换。</h2>
+            <p data-i18n="themesDesc">
+              选择适合自己的现代化
+              UI。主题配置包均包含完整功能，安装后即可使用。
+            </p>
+          </div>
+          <div class="theme-grid">
+            <article class="theme-card">
+              <div
+                class="theme-image-wrap"
+                role="button"
+                tabindex="0"
+                data-lightbox="images/ModernZ-Theme.jpg"
+                data-caption="ModernZ"
+              >
+                <img src="images/ModernZ-Theme.jpg" alt="ModernZ 主题截图" />
+              </div>
+              <div class="theme-info">
+                <h3>ModernZ</h3>
+                <p data-i18n="modernzDesc">
+                  现代、克制的播放器界面，清晰呈现播放控制。
+                </p>
+                <span class="theme-label">MODERN · CLEAN</span>
+              </div>
+            </article>
+            <article class="theme-card">
+              <div
+                class="theme-image-wrap"
+                role="button"
+                tabindex="0"
+                data-lightbox="images/Uosc-Theme.jpg"
+                data-caption="uosc"
+              >
+                <img src="images/Uosc-Theme.jpg" alt="uosc 主题截图" />
+              </div>
+              <div class="theme-info">
+                <h3>uosc</h3>
+                <p data-i18n="uoscDesc">
+                  灵活的现代控制层，兼顾信息密度与可操作性。
+                </p>
+                <span class="theme-label">FLEXIBLE · POWERFUL</span>
+              </div>
+            </article>
+            <article class="theme-card">
+              <div
+                class="theme-image-wrap"
+                role="button"
+                tabindex="0"
+                data-lightbox="images/ModernGlass-Theme.jpg"
+                data-caption="ModernGlass"
+              >
+                <img
+                  src="images/ModernGlass-Theme.jpg"
+                  alt="ModernGlass 主题截图"
+                />
+              </div>
+              <div class="theme-info">
+                <h3>ModernGlass</h3>
+                <p data-i18n="glassDesc">
+                  玻璃质感与轻盈层次，让播放界面更有氛围。
+                </p>
+                <span class="theme-label">GLASS · IMMERSIVE</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="menu">
+        <div class="wrap menu-layout">
+          <div class="menu-copy">
+            <div class="kicker" data-i18n="menuKicker">
+              CONTROL AT YOUR FINGERTIPS
+            </div>
+            <h2 data-i18n="menuTitle">强大功能，不必翻找设置。</h2>
+            <p data-i18n="menuDesc">
+              跨 Windows、macOS、Linux
+              的一致右键菜单。常用控制集中呈现，需要时再按需加载。
+            </p>
+            <div class="feature-list">
+              <div class="feature">
+                <div class="feature-icon">✦</div>
+                <div>
+                  <h3 data-i18n="f1Title">滤镜与超分</h3>
+                  <p data-i18n="f1Desc">
+                    按需加载 Anime4K、FSRCNNX、CuNNy、ArtCNN 等视频滤镜。
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">◉</div>
+                <div>
+                  <h3 data-i18n="f2Title">画面与声音</h3>
+                  <p data-i18n="f2Desc">
+                    可视化调节 EQ、声道、色彩、解码方式与自动 HDR。
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">字幕</div>
+                <div>
+                  <h3 data-i18n="f3Title">字幕与弹幕</h3>
+                  <p data-i18n="f3Desc">
+                    集成在线中文字幕搜索、弹幕加载与进度条缩略图预览。
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">↗</div>
+                <div>
+                  <h3 data-i18n="f4Title">更多播放方式</h3>
+                  <p data-i18n="f4Desc">
+                    支持插帧模式、360° VR 全景视频，并可切换主题配色。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figure class="menu-image">
+            <img src="images/menu.gif" alt="mpv.config 右键菜单演示" />
+            <figcaption data-i18n="menuCaption">
+              右键菜单预览 · 多种菜单样式与主题配色可选
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section" id="features">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="kicker" data-i18n="featuresKicker">
+              BUILT FOR EVERYDAY VIEWING
+            </div>
+            <h2 data-i18n="featuresTitle">轻量配置，完整体验。</h2>
+            <p data-i18n="featuresDesc">
+              保留原生 mpv 的灵活性，同时把实用功能整合到更容易上手的体验里。
+            </p>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="num">01 / UI</div>
+              <h3 data-i18n="s1Title">现代化主题</h3>
+              <p data-i18n="s1Desc">
+                无边框设计、进度条缩略图、实时主题配色切换。
+              </p>
+            </div>
+            <div class="summary-card">
+              <div class="num">02 / SMART</div>
+              <h3 data-i18n="s2Title">便捷控制</h3>
+              <p data-i18n="s2Desc">
+                一致的右键菜单，均衡器、字幕、滤镜与播放选项集中管理。
+              </p>
+            </div>
+            <div class="summary-card">
+              <div class="num">03 / OPEN</div>
+              <h3 data-i18n="s3Title">原生、跨平台</h3>
+              <p data-i18n="s3Desc">
+                配置与播放器分离，可独立更新 mpv；支持 Windows、macOS 与 Linux。
+              </p>
+            </div>
+          </div>
+          <div class="install">
+            <h3 data-i18n="installTitle">几步开始使用</h3>
+            <p data-i18n="installDesc">
+              从 Releases 下载所需主题配置包。请先安装 mpv 播放器。
+            </p>
+            <div class="install-steps">
+              <div class="step">
+                <b data-i18n="step1Title">01 — 安装 mpv</b
+                ><span data-i18n="step1Desc"
+                  >按操作系统选择合适的 mpv 版本。</span
+                >
+              </div>
+              <div class="step">
+                <b data-i18n="step2Title">02 — 下载主题配置</b
+                ><span data-i18n="step2Desc"
+                  >在 Releases 中选择 ModernZ、ModernGlass 或 uosc。</span
+                >
+              </div>
+              <div class="step">
+                <b data-i18n="step3Title">03 — 解压并重启</b
+                ><span data-i18n="step3Desc"
+                  >将配置文件放入配置文件夹，重启播放器即可。</span
+                >
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                margin-top: 22px;
+              "
+            >
+              <a
+                class="btn btn-primary"
+                href="https://github.com/akFace/mpv.config/releases"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="downloadRelease"
+                >下载最新配置 ↗</a
+              ><a
+                class="btn btn-secondary"
+                href="https://akface.github.io/mpv.config/docs/"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="wikiGuide"
+                >查看快捷键与文档 ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-inner">
+        <span
+          >© mpv.config ·
+          <span data-i18n="footerText">为更好的观影体验而打造</span></span
+        >
+        <div class="footer-links">
+          <a
+            href="https://github.com/akFace/mpv.config"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub ↗</a
+          ><a
+            href="https://akface.github.io/mpv.config/docs/"
+            target="_blank"
+            rel="noreferrer"
+            >Docs ↗</a
+          ><a
+            href="https://github.com/akFace/mpv.config/releases"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="releases"
+            >Releases ↗</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="lightbox"
+      id="themeLightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Theme image preview"
+    >
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label="Close preview"
+        title="Close (Esc)"
+      >
+        ×
+      </button>
+      <img id="lightboxImage" src="" alt="Expanded theme preview" />
+      <div class="lightbox-caption" id="lightboxCaption">
+        Theme preview · Click outside or press Esc to close
+      </div>
+    </div>
+    <script>
+      const copy = {
+        zh: {
+          navFeatures: "功能特色",
+          navCompare: "画质对比",
+          navThemes: "主题",
+          navMenu: "菜单",
+          download: "↓ 前往下载",
+          eyebrow: "为 mpv 打造的完整体验",
+          heroTitle: '让每一帧，<span class="grad">更出色。</span>',
+          heroDesc:
+            "一套开箱即用的 mpv 配置：现代化主题、智能右键菜单、Anime4K 超分与常用插件。轻量、灵活，Windows / macOS / Linux 全平台适用。",
+          getStarted: "前往下载",
+          readWiki: "安装教程文档",
+          pillOpen: "开源 · 多主题",
+          heroCaption: "简洁无边框界面 · 播放器与配置分离 · 为日常观影而设计",
+          compareKicker: "REAL-TIME UPSCALING",
+          compareTitle: "拖动滑块，感受画质变化。",
+          compareDesc:
+            "视频增强超分功能实时提升画质，对比原始画面与 Anime4K HQ 处理后的效果。左右拖动中间的控制柄，查看细节差异。",
+          sourceLabel: "原始画面",
+          compare720Note: "720p → 720p-Ani4kHQ：实时超分，提升线条与纹理观感。",
+          compare1080Note:
+            "1080p → 1080p-Ani4kHQ：移动滑块，直观看到处理前后的区别。",
+          themesKicker: "YOUR LOOK, YOUR WAY",
+          themesTitle: "三种风格，随心切换。",
+          themesDesc:
+            "选择适合自己的现代化 UI。主题配置包均包含完整功能，安装后即可使用。",
+          modernzDesc: "现代、克制的播放器界面，清晰呈现播放控制。",
+          uoscDesc: "灵活的现代控制层，兼顾信息密度与可操作性。",
+          glassDesc: "玻璃质感与轻盈层次，让播放界面更有氛围。",
+          menuKicker: "CONTROL AT YOUR FINGERTIPS",
+          menuTitle: "强大功能，不必翻找设置。",
+          menuDesc:
+            "跨 Windows、macOS、Linux 的一致右键菜单。常用控制集中呈现，需要时再按需加载。",
+          f1Title: "滤镜与超分",
+          f1Desc: "按需加载 Anime4K、FSRCNNX、CuNNy、ArtCNN 等视频滤镜。",
+          f2Title: "画面与声音",
+          f2Desc: "可视化调节 EQ、声道、色彩、解码方式与自动 HDR。",
+          f3Title: "字幕与弹幕",
+          f3Desc: "集成在线中文字幕搜索、弹幕加载与进度条缩略图预览。",
+          f4Title: "更多播放方式",
+          f4Desc: "支持插帧模式、360° VR 全景视频，并可切换主题配色。",
+          menuCaption: "右键菜单预览 · 多种菜单样式与主题配色可选",
+          featuresKicker: "BUILT FOR EVERYDAY VIEWING",
+          featuresTitle: "轻量配置，完整体验。",
+          featuresDesc:
+            "保留原生 mpv 的灵活性，同时把实用功能整合到更容易上手的体验里。",
+          s1Title: "现代化主题",
+          s1Desc: "无边框设计、进度条缩略图、实时主题配色切换。",
+          s2Title: "便捷控制",
+          s2Desc: "一致的右键菜单，均衡器、字幕、滤镜与播放选项集中管理。",
+          s3Title: "原生、跨平台",
+          s3Desc:
+            "配置与播放器分离，可独立更新 mpv；支持 Windows、macOS 与 Linux。",
+          installTitle: "几步开始使用",
+          installDesc: "从 Releases 下载所需主题配置包。请先安装 mpv 播放器。",
+          step1Title: "01 — 安装 mpv",
+          step1Desc: "按操作系统选择合适的 mpv 版本。",
+          step2Title: "02 — 下载主题配置",
+          step2Desc: "在 Releases 中选择 ModernZ、ModernGlass 或 uosc。",
+          step3Title: "03 — 解压并重启",
+          step3Desc: "将配置文件放入配置文件夹，重启播放器即可。",
+          downloadRelease: "下载最新配置 ↗",
+          wikiGuide: "查看快捷键与文档 ↗",
+          footerText: "为更好的观影体验而打造",
+          releases: "Releases ↗",
+          readMoreShaders: "查看更多超分滤镜 ↗",
+        },
+        en: {
+          navFeatures: "Features",
+          navCompare: "Image Compare",
+          navThemes: "Themes",
+          navMenu: "Menu",
+          download: "↓ Download",
+          eyebrow: "A complete experience for mpv",
+          heroTitle: 'Make every frame <span class="grad">stand out.</span>',
+          heroDesc:
+            "A ready-to-use mpv configuration with modern themes, a powerful context menu, Anime4K upscaling and useful plugins. Lightweight and flexible on Windows, macOS and Linux.",
+          getStarted: "Get the Config",
+          readWiki: "Installation Guide",
+          pillOpen: "Open source · Multiple themes",
+          heroCaption:
+            "Clean borderless UI · Player and config kept separate · Built for everyday viewing",
+          compareKicker: "REAL-TIME UPSCALING",
+          compareTitle: "Drag to reveal the difference.",
+          compareDesc:
+            "Anime4k improves image quality in real time. Compare the original image with Anime4K HQ processing. Move the handle left or right to inspect the details.",
+          sourceLabel: "Original",
+          compare720Note:
+            "720p → 720p-Ani4kHQ: real-time upscaling for enhanced lines and textures.",
+          compare1080Note:
+            "1080p → 1080p-Ani4kHQ: move the slider to compare before and after.",
+          themesKicker: "YOUR LOOK, YOUR WAY",
+          themesTitle: "Three styles. Your choice.",
+          themesDesc:
+            "Choose a modern UI that suits your taste. Each theme package includes the full configuration, ready to use.",
+          modernzDesc:
+            "A modern, restrained player interface with clear playback controls.",
+          uoscDesc:
+            "A flexible modern control layer balancing information and usability.",
+          glassDesc:
+            "A light glass-like finish that adds depth and atmosphere.",
+          menuKicker: "CONTROL AT YOUR FINGERTIPS",
+          menuTitle: "Powerful controls, right where you need them.",
+          menuDesc:
+            "A consistent context menu across Windows, macOS and Linux. Common controls are easy to find, with optional tools available when needed.",
+          f1Title: "Filters & Upscaling",
+          f1Desc:
+            "Load video filters on demand, including Anime4K, FSRCNNX, CuNNy and ArtCNN.",
+          f2Title: "Picture & Audio",
+          f2Desc:
+            "Visually adjust EQ, audio channels, color, decoding options and automatic HDR.",
+          f3Title: "Subtitles & Danmaku",
+          f3Desc:
+            "Online Chinese subtitle search, danmaku loading and timeline thumbnail previews.",
+          f4Title: "More Ways to Play",
+          f4Desc:
+            "Frame interpolation, 360° VR video support and live theme color switching.",
+          menuCaption:
+            "Context menu preview · Multiple menu styles and color schemes",
+          featuresKicker: "BUILT FOR EVERYDAY VIEWING",
+          featuresTitle: "Lightweight setup. Full experience.",
+          featuresDesc:
+            "Keep the flexibility of native mpv while bringing useful features together in an easier-to-use experience.",
+          s1Title: "Modern Themes",
+          s1Desc:
+            "Borderless design, timeline thumbnails and live theme color switching.",
+          s2Title: "Convenient Controls",
+          s2Desc:
+            "A unified context menu for EQ, subtitles, filters and playback options.",
+          s3Title: "Native & Cross-platform",
+          s3Desc:
+            "Keep configuration separate and update mpv independently. Supports Windows, macOS and Linux.",
+          installTitle: "Get started in a few steps",
+          installDesc:
+            "Download a theme configuration from Releases. Install the mpv player first.",
+          step1Title: "01 — Install mpv",
+          step1Desc: "Choose a suitable mpv build for your operating system.",
+          step2Title: "02 — Download a theme",
+          step2Desc: "Choose ModernZ, ModernGlass or uosc from Releases.",
+          step3Title: "03 — Extract & restart",
+          step3Desc:
+            "Place the configuration files in your config folder, then restart the player.",
+          downloadRelease: "Download Latest Config ↗",
+          wikiGuide: "Shortcuts & Documentation ↗",
+          footerText: "Made for a better viewing experience",
+          releases: "Releases ↗",
+          readMoreShaders: "See more upscaling shaders ↗",
+        },
+      };
+      // 根据浏览器语言自动选择
+      let lang = (navigator.language || navigator.userLanguage || "")
+        .toLowerCase()
+        .startsWith("zh")
+        ? "zh"
+        : "en";
+      function setLang(next) {
+        lang = next;
+        if (lang === "zh") {
+          document.getElementById("quarkDownload").style.display =
+            "inline-flex";
+        } else {
+          document.getElementById("quarkDownload").style.display = "none";
+        }
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const k = el.dataset.i18n;
+          if (copy[lang][k]) el.textContent = copy[lang][k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const k = el.dataset.i18nHtml;
+          if (copy[lang][k]) el.innerHTML = copy[lang][k];
+        });
+        document.getElementById("langToggle").textContent =
+          lang === "zh" ? "EN / 中文" : "中文 / EN";
+        document
+          .querySelectorAll(".compare input")
+          .forEach((el, i) =>
+            el.setAttribute(
+              "aria-label",
+              lang === "zh"
+                ? i === 0
+                  ? "720p 画面对比滑块"
+                  : "1080p 画面对比滑块"
+                : i === 0
+                ? "720p image comparison slider"
+                : "1080p image comparison slider"
+            )
+          );
+      }
+      setLang(lang);
+      document
+        .getElementById("langToggle")
+        .addEventListener("click", () => setLang(lang === "zh" ? "en" : "zh"));
+      document.querySelectorAll(".compare").forEach((box) => {
+        const input = box.querySelector("input");
+        function update() {
+          box.style.setProperty("--split", input.value + "%");
+        }
+        input.addEventListener("input", update);
+        update();
+      });
+      const lightbox = document.getElementById("themeLightbox"),
+        lightboxImg = document.getElementById("lightboxImage"),
+        lightboxCaption = document.getElementById("lightboxCaption"),
+        closeLightbox = lightbox.querySelector(".lightbox-close");
+      function openThemePreview(trigger) {
+        const src = trigger.dataset.lightbox;
+        if (!src) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = trigger.dataset.caption + " theme preview";
+        lightboxCaption.textContent =
+          (trigger.dataset.caption || "Theme") +
+          " · " +
+          (lang === "zh"
+            ? "点击空白处或按 Esc 关闭"
+            : "Click outside or press Esc to close");
+        lightbox.classList.add("open");
+        document.body.classList.add("lightbox-open");
+        closeLightbox.focus();
+      }
+      function hideThemePreview() {
+        lightbox.classList.remove("open");
+        document.body.classList.remove("lightbox-open");
+        lightboxImg.src = "";
+      }
+      document.querySelectorAll("[data-lightbox]").forEach((el) => {
+        el.addEventListener("click", () => openThemePreview(el));
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openThemePreview(el);
+          }
+        });
+      });
+      closeLightbox.addEventListener("click", hideThemePreview);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) hideThemePreview();
+      });
+      lightboxImg.addEventListener("click", hideThemePreview);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("open"))
+          hideThemePreview();
+      });
+    </script>
+  </body>
+</html>
