@@ -12,7 +12,7 @@ hero:
       link: /en/install
     - theme: alt
       text: Explore Features
-      link: https://akface.github.io/mpv.config/
+      link: https://mpvConfig.github.io/
 
 features:
   - title: 🎞 Shaders & Upscaling

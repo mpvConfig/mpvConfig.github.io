@@ -12,7 +12,7 @@ hero:
       link: /install
     - theme: alt
       text: 查看特性
-      link: https://akface.github.io/mpv.config/
+      link: https://mpvConfig.github.io/
 
 features:
   - title: 🎞 滤镜与超分

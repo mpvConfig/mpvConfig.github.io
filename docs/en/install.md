@@ -19,7 +19,7 @@ Please download `xxx_en.zip` version, [How to add a localized language?](https:/
 - `modern_glass`
 - `uosc`
 
-📣 [Preview](https://akface.github.io/mpv.config/docs/en/preview)
+📣 [Preview](https://mpvConfig.github.io/docs/en/preview)
 
 Each theme archive contains a complete, fully functional configuration. Simply download and extract it.
 

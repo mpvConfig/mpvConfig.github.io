@@ -14,4 +14,4 @@ A typical directory structure looks like this:
       └── input.conf
 ```
 
-- How can I customize the configuration `mpv.conf`, keybindings menus `input.conf` and any `script-opts/xxx.conf` file so that they remain unaffected when overwriting files during a version update? 📢 [View more >>](https://akface.github.io/mpv.config/docs/en/custom)
+- How can I customize the configuration `mpv.conf`, keybindings menus `input.conf` and any `script-opts/xxx.conf` file so that they remain unaffected when overwriting files during a version update? 📢 [View more >>](https://mpvConfig.github.io/docs/en/custom)

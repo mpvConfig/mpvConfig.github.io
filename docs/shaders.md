@@ -34,7 +34,7 @@ mpv启动时默认：
 > [!TIP]
 >
 > - 以下内容基于最新版本为主，旧版或有差异：🍭 [查看最新 releases 版本](https://github.com/akFace/mpv.config/releases)
-> - 查看是否为最新版本，播放器内：右键 > 工具 > 检查更新，🎯 [如何更新到最新版？](https://akface.github.io/mpv.config/docs/update)
+> - 查看是否为最新版本，播放器内：右键 > 工具 > 检查更新，🎯 [如何更新到最新版？](https://mpvConfig.github.io/docs/update)
 > - 性能等级分为：**低 / 中 / 高 / 极高**，基于中端显卡（如 GTX 1660 / RTX 3050）播放 4K 输出时的相对开销估算。
 
 ---

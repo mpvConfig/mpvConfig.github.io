@@ -17,7 +17,8 @@ export default defineConfig({
       provider: "local",
     },
     editLink: {
-      pattern: "https://github.com/akFace/mpv.config/tree/main/docs/:path",
+      pattern:
+        "https://github.com/mpvConfig/mpvConfig.github.io/blob/main/docs/:path",
     },
     socialLinks: [
       { icon: "github", link: "https://github.com/akFace/mpv.config" },
@@ -32,7 +33,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: "首页", link: "/" },
-          { text: "查看特性", link: "https://akface.github.io/mpv.config/" },
+          { text: "查看特性", link: "https://mpvConfig.github.io/" },
         ],
         sidebar: [
           {
@@ -61,7 +62,7 @@ export default defineConfig({
           { text: "Home", link: "/en/" },
           {
             text: "View Features",
-            link: "https://akface.github.io/mpv.config/",
+            link: "https://mpvConfig.github.io/",
           },
         ],
         sidebar: [
