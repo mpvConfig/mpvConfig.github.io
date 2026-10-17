@@ -1,7 +1,9 @@
 # Customization
 
 > [!TIP]
-> How can I customize the configuration `mpv.conf`, keybindings menus `input.conf` and any `script-opts/xxx.conf` file so that they remain unaffected when overwriting files during a version update?
+>
+> - mpv manual：https://mpv.io/manual/master/
+> - How can I customize the configuration `mpv.conf`, keybindings menus `input.conf` and any `script-opts/xxx.conf` file so that they remain unaffected when overwriting files during a version update?
 
 ## Customize the configuration (`mpv.conf` and Any `.conf` file)
 
@@ -42,6 +44,8 @@ script-opts-append = "modernz-seek_handle_color=#0083B5"
 script-opts-append = "modernz-seek_handle_border_color=#076792"
 # Hover color for buttons
 script-opts-append = "modernz-hover_effect_color=#FF6699"
+# color of the element when held down (pressed)
+script-opts-append = "modernz-held_element_color=#7C3AED"
 ```
 
 ## Customize shortcuts and menus (`input.conf`)

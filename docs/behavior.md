@@ -31,7 +31,7 @@ mpv启动时默认：
 
 配置文件在`script-opts/celebi.conf`下，如需增加保存其他的`mpv.conf`配置设置项，请手动修改`celebi.conf`，保存的用户设置数据在`portable_config/celebi.txt` 要恢复默认状态，删除`celebi.txt`文件重启播放器即可
 
-```
+```conf
 # ======下次启动会根据用户设置加载======
 # ======以下参数会自动保存的设置名称======
 # 音量

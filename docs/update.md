@@ -14,4 +14,8 @@
       └── input.conf
 ```
 
-- 如何自定义配置 `mpv.conf` 与快捷键/菜单 `input.conf` 、`script-opts/` 目录中的任意`.conf`文件，在更新版本时直接覆盖不受影响？ 📢 [查看教程](https://mpvConfig.github.io/docs/custom)
+- 整合包更新方法：下载最新版解压后替换原本的内容（或者删掉旧的，解压新的即可）
+
+> [!TIP]
+>
+> 如何自定义配置 `mpv.conf` 与快捷键/菜单 `input.conf` 、`script-opts/` 目录中的任意`.conf`文件，在更新版本时直接覆盖不受影响？ 📢 [查看教程](https://mpvConfig.github.io/docs/custom)

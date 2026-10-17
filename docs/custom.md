@@ -1,7 +1,9 @@
 # 自定义
 
 > [!TIP]
-> 如何自定义配置 `mpv.conf` 与快捷键/菜单 `input.conf` 、`script-opts/` 目录中的任意`.conf`文件，在更新版本时直接覆盖不受影响？
+>
+> - mpv 官方手册：https://mpv.io/manual/master
+> - 如何自定义配置 `mpv.conf` 与快捷键/菜单 `input.conf` 、`script-opts/` 目录中的任意`.conf`文件，在更新版本时直接覆盖不受影响？
 
 ## 自定义配置（`mpv.conf` 与 任意`.conf`文件）
 
@@ -13,7 +15,7 @@
 3. 编辑 custom-opts.conf 文件
    写入需要自定义的内容，例如：
 
-```
+```conf
 # 启动默认声音大小
 volume=80
 # 修改默认 modernz 配置
@@ -30,7 +32,7 @@ script-opts-append = "modernz-seekbarbg_color=#077d55"
 
 一套 modernZ 主题/主要颜色，`custom-opts.conf` 文件内容示例：
 
-```
+```conf
 # 进度条颜色
 script-opts-append = "modernz-seekbarfg_color=#00AEEC"
 # 剩余进度条的颜色
@@ -43,6 +45,8 @@ script-opts-append = "modernz-seek_handle_color=#0083B5"
 script-opts-append = "modernz-seek_handle_border_color=#076792"
 # 鼠标悬停在按钮上的颜色
 script-opts-append = "modernz-hover_effect_color=#FF6699"
+# 鼠标按下按钮时的颜色
+script-opts-append = "modernz-held_element_color=#7C3AED"
 ```
 
 ## 自定义快捷键/菜单（`input.conf`）

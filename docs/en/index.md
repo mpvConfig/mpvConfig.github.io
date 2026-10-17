@@ -18,7 +18,7 @@ features:
   - title: 🎞 Shaders & Upscaling
     details: Load video shaders such as Anime4K, FSRCNNX, CuNNy, and ArtCNN as needed.
   - title: 📺 Video & Audio
-    details: Visually adjust EQ, audio channels, colors, decoding methods, and automatic HDR.
+    details: Support 360°VR, Automatic Intro & Outro Skipping, Visually adjust EQ, audio channels, colors, decoding methods, and automatic HDR.
   - title: 📰 Subtitles & Danmaku
     details: Includes online Chinese subtitle search, danmaku loading, and timeline thumbnail previews.
   - title: 🍭 Native & Cross-platform

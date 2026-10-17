@@ -2,7 +2,7 @@
 
 若遇到无法加载的情况，请 portable_config/script-opts 目录下创建`sub_assrt.conf`文件，然后复制以下代码到文件中
 
-```
+```conf
 # API token, 可以在 https://assrt.net 上注册账号后在个人界面API密钥获取
 api_token=
 # 设置是否使用https

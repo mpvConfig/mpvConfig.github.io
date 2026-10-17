@@ -18,7 +18,7 @@ features:
   - title: 🎞 滤镜与超分
     details: 按需加载 Anime4K、FSRCNNX、CuNNy、ArtCNN 等视频滤镜。
   - title: 📺 画面与声音
-    details: 可视化调节 EQ、声道、色彩、解码方式与自动 HDR。
+    details: 支持360°VR、自动跳过片头片尾、可视化调节 EQ、声道、色彩、解码方式与自动 HDR。
   - title: 📰 字幕与弹幕
     details: 集成在线中文字幕搜索、弹幕加载与进度条缩略图预览。
   - title: 🍭 原生、跨平台
