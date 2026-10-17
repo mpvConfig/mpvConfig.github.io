@@ -7,7 +7,10 @@ export default defineConfig({
   description:
     "mpv.config — The configuration file of the mpv player supports Windows, macOS, Linux & Multiple shaders, Anime4K/FSRCNNX/CuNNy/ArtCNN | mpv播放器配置整合包懒人版&液态玻璃主题皮肤(theme | skin) 轻量级/支持全网弹幕/在线字幕/插帧超帧超分画质Anime4K /进度条预览/可视化均衡器/360°VR",
   head: [
-    ["link", { rel: "icon", href: "./../favicon.ico" }],
+    [
+      "link",
+      { rel: "icon", href: "./../images/favicon.ico", type: "image/x-icon" },
+    ],
     [
       "meta",
       {
