@@ -9,7 +9,11 @@ export default defineConfig({
   head: [
     [
       "link",
-      { rel: "icon", href: "./../images/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "icon",
+        href: "https://mpvconfig.github.io/images/favicon.ico",
+        type: "image/x-icon",
+      },
     ],
     [
       "meta",
@@ -65,6 +69,7 @@ export default defineConfig({
               { text: "默认行为", link: "/behavior" },
               { text: "字幕相关", link: "/subtitles" },
               { text: "视频滤镜选择指南", link: "/shaders" },
+              { text: "插帧/补帧相关", link: "/Interpolation" },
               { text: "自定义配置", link: "/custom" },
               { text: "常见问题&推荐", link: "/faq" },
               { text: "预览截图", link: "/preview" },
@@ -95,6 +100,7 @@ export default defineConfig({
               { text: "Default Behavior", link: "/en/behavior" },
               { text: "Subtitles", link: "/en/subtitles" },
               { text: "Video Shader Guide", link: "/en/shaders" },
+              { text: "Frame Interpolation", link: "/en/Interpolation" },
               { text: "Custom Configuration", link: "/en/custom" },
               { text: "FAQ & Recommendations", link: "/en/faq" },
               { text: "Preview Screenshots", link: "/en/preview" },

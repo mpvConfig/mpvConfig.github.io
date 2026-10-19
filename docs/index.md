@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "mpv.config"
-  text: ""
-  tagline: 一套开箱即用的 mpv 配置：现代化主题、智能右键菜单、画质超分与常用插件。轻量、灵活，支持 Windows / macOS / Linux
+  text: "让每一帧，更出色。"
+  tagline: 一套开箱即用的 MPV 播放器配置：现代化主题、智能右键菜单、画质超分与常用插件。轻量、灵活，支持 Windows / macOS / Linux
   actions:
     - theme: brand
       text: 立即开始

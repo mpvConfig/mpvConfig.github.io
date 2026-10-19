@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "mpv.config"
-  text: ""
-  tagline: An out-of-the-box mpv configuration featuring a modern theme, smart right-click menus, video upscaling, and useful plugins. Lightweight and flexible, with support for Windows / macOS / Linux.
+  text: "Make every frame stand out."
+  tagline: An out-of-the-box mpv player configuration featuring a modern theme, smart right-click menus, video upscaling, and useful plugins. Lightweight and flexible, with support for Windows / macOS / Linux.
   actions:
     - theme: brand
       text: Get Started

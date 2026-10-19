@@ -1,0 +1,11 @@
+:root:where(:lang(fa)) {
+  --vp-font-family-base:
+    'Vazirmatn', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(100deg, #ad62eb 15%, #6855ac 52%, #67e8f9);
+  --vp-home-hero-name-background-clip: text;
+}

@@ -37,8 +37,6 @@ Default mpv startup:
 > - To check for updates in the player, right-click and select **Tools > Check for updates**. 🎯 [How to update to the latest version](https://mpvConfig.github.io/docs/en/update.html)
 > - Performance levels are **Low / Medium / High / Very High**, estimated as relative workloads when outputting 4K on a mid-range GPU (such as a GTX 1660 / RTX 3050).
 
----
-
 ## 1. Recommendations by content type
 
 ### 🎨 Anime
@@ -194,19 +192,6 @@ Default mpv startup:
   - Anime4K: Mode A+A (Fast)
   - Anime4K: Mode B+B (Fast)
   - Anime4K: Mode C+A (Fast)
-
-### Frame interpolation
-
-Press `n`. Interpolation is disabled by default. Repeated presses cycle through:
-
-`Interpolation Off` ➜ `Cinema Mode` ➜ `Anime Mode` ➜ `Ultra Smooth`
-
-- **Cinema Mode:** de-judder with no blur.
-- **Anime Mode:** uses sphinx with a blur level of 0.65, aiming for smooth motion while tightening anime linework without making it blurry.
-- **Ultra Smooth:** uses bicubic interpolation, which can look slightly soft by default; the setting is adjusted to -0.40 for a little sharpening and to reduce excessive smearing.
-- This configuration uses mpv's built-in temporal interpolation (`interpolation=yes`). Based on AI summaries of online discussions, it is considered a good overall choice for many hardware setups. If you need a different interpolation method, you can ask an AI assistant; the setup is relatively simple.
-
----
 
 ## 4. General recommendations
 
