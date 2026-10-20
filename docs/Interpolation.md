@@ -16,7 +16,7 @@
 > [!TIP]
 > 默认包不带有，需要的根据以下教程安装
 
-### VapourSynth MVTools 插帧/补帧功能
+### VapourSynth MVTools / OPEN-SVPFLOW 插帧/补帧功能
 
 - 操作简单，一键安装，立即前往安装 ⇢ [https://github.com/mpvConfig/mpvTools](https://github.com/mpvConfig/mpvTools)
 - 为了简化安装，我们做了脚本自动化处理，支持 Windows / Linux / macOS
@@ -24,3 +24,4 @@
 ### GitHub 社区其他插帧
 
 - [https://github.com/MSalman5230/mpv-config](https://github.com/MSalman5230/mpv-config)
+- [https://github.com/hzwer/Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
