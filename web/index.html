@@ -235,6 +235,52 @@
         height: auto;
         border-radius: 12px;
       }
+
+      .hero-shot {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      .hero-shot > img {
+        display: block;
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .hero-danmaku {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 8px;
+        right: 8px;
+        height: 30%;
+        overflow: hidden;
+        pointer-events: none;
+        user-select: none;
+        contain: layout paint;
+        box-sizing: border-box;
+      }
+
+      .hero-danmaku-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: max-content;
+        white-space: nowrap;
+        color: #ddd;
+        font-size: clamp(11px, 1.05vw, 14px);
+        font-weight: 600;
+        line-height: 18px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 1px 0 2px rgba(0, 0, 0, 0.8),
+          -1px 0 2px rgba(0, 0, 0, 0.8);
+        will-change: transform;
+      }
+
       .hero-caption {
         color: #777b91;
         font-size: 11px;
@@ -856,9 +902,12 @@
             ><span class="pill">LGPL-2.1</span
             ><span class="pill" data-i18n="pillOpen">开源 · 多主题</span>
           </div>
+
           <div class="hero-shot">
             <img src="images/main.png" alt="mpv.config 主界面预览" />
+            <div class="hero-danmaku" aria-hidden="true"></div>
           </div>
+
           <div class="hero-caption" data-i18n="heroCaption">
             简洁无边框界面 · 播放器与配置分离 · 为日常观影而设计
           </div>
@@ -1365,10 +1414,13 @@
         : "en";
       function setLang(next) {
         lang = next;
+        const danmaku = document.querySelector(".hero-danmaku");
         if (lang === "zh") {
           document.getElementById("quarkDownload").style.display =
             "inline-flex";
+          danmaku.style.display = "block";
         } else {
+          danmaku.style.display = "none";
           document.getElementById("quarkDownload").style.display = "none";
         }
         document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
@@ -1451,6 +1503,264 @@
         if (e.key === "Escape" && lightbox.classList.contains("open"))
           hideThemePreview();
       });
+
+      (() => {
+        function initHeroDanmaku() {
+          const container = document.querySelector(".hero-danmaku");
+          if (!container || container.dataset.initialized) return;
+
+          container.dataset.initialized = "true";
+
+          // 弹幕词库：可以自由增删
+          const phrases = [
+            "Anime4K 超分",
+            "FSRCNNX",
+            "高清放大",
+            "CuNNy",
+            "实时画质增强",
+            "ArtCNN",
+            "锐化滤镜",
+            "HDR 自动增强",
+            "在线中文字幕搜索",
+            "弹幕加载",
+            "进度条缩略图预览",
+            "插帧/补帧",
+            "360° VR 全景",
+            "可视化均衡器",
+            "声道自由调节",
+            "色彩管理",
+            "ModernZ",
+            "ModernGlass",
+            "uosc",
+            "智能右键菜单",
+            "轻量化配置",
+            "Windows",
+            "macOS",
+            "Linux",
+            "自由定制你的播放器",
+            "自由度高",
+            "自定义皮肤",
+            "弹幕",
+            "画中画",
+            "自定义快捷键",
+            "666",
+            "牛皮",
+            "包好用的",
+            "主题皮肤",
+            "文档齐全",
+          ];
+
+          // 参数
+          const SPEED_MIN = 40; // 最低滚动速度 px/s
+          const SPEED_MAX = 80; // 最高滚动速度 px/s
+          const GAP = 36; // 同轨道弹幕间距 px
+          const MIN_DELAY = 450; // 最短发射间隔 ms
+          const MAX_DELAY = 1200; // 最长发射间隔 ms
+          const LINE_HEIGHT = 18; // 每条轨道高度 px
+
+          let lanes = [];
+          let remaining = [];
+          let active = new Set();
+          let timer = null;
+          let stopped = false;
+          let resizeObserver = null;
+
+          const random = (min, max) => Math.random() * (max - min) + min;
+
+          function shuffle(items) {
+            const result = [...items];
+
+            for (let i = result.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [result[i], result[j]] = [result[j], result[i]];
+            }
+
+            return result;
+          }
+
+          function buildLanes() {
+            const count = Math.max(
+              1,
+              Math.floor(container.clientHeight / LINE_HEIGHT)
+            );
+
+            lanes = Array.from({ length: count }, (_, i) => ({
+              y: i * LINE_HEIGHT,
+              availableAt: 0,
+            }));
+          }
+
+          function scheduleNext(delay = random(MIN_DELAY, MAX_DELAY)) {
+            clearTimeout(timer);
+
+            if (stopped) return;
+
+            timer = setTimeout(emit, delay);
+          }
+
+          function emit() {
+            if (stopped || !container.isConnected) return;
+
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            if (!containerWidth || !containerHeight) {
+              scheduleNext(500);
+              return;
+            }
+
+            if (!lanes.length) buildLanes();
+
+            // 所有词语当前都在屏幕上时，稍后再尝试。
+            const activeTexts = new Set(
+              [...active].map((record) => record.text)
+            );
+
+            // 只从当前没有显示的词语中选择。
+            const eligible = remaining.filter((text) => !activeTexts.has(text));
+
+            if (!eligible.length) {
+              scheduleNext(200);
+              return;
+            }
+
+            const now = performance.now();
+
+            // 只选择已经空闲、可以安全发射的轨道。
+            const available = lanes.filter((lane) => lane.availableAt <= now);
+
+            if (!available.length) {
+              const nextFree = Math.min(
+                ...lanes.map((lane) => lane.availableAt)
+              );
+
+              scheduleNext(Math.max(80, nextFree - now + 20));
+              return;
+            }
+
+            // 随机选择词语，并从待发射队列中移除。
+            const textIndex = Math.floor(Math.random() * eligible.length);
+            const text = eligible[textIndex];
+            const queueIndex = remaining.indexOf(text);
+
+            if (queueIndex !== -1) {
+              remaining.splice(queueIndex, 1);
+            }
+
+            // 随机选择可用轨道。
+            const lane =
+              available[Math.floor(Math.random() * available.length)];
+
+            const item = document.createElement("span");
+            item.className = "hero-danmaku-item";
+            item.textContent = text;
+            item.style.top = `${lane.y}px`;
+
+            container.appendChild(item);
+
+            const width = item.getBoundingClientRect().width;
+            const speed = random(SPEED_MIN, SPEED_MAX);
+            const duration = ((containerWidth + width) / speed) * 1000;
+
+            // 该轨道要等当前弹幕通过并留出间距后才能再次使用。
+            lane.availableAt = now + ((width + GAP) / speed) * 1000;
+
+            const record = {
+              item,
+              text,
+              lane,
+              animation: null,
+            };
+
+            active.add(record);
+
+            const animation = item.animate(
+              [
+                {
+                  transform: `translateX(${containerWidth}px)`,
+                },
+                {
+                  transform: `translateX(${-width}px)`,
+                },
+              ],
+              {
+                duration,
+                easing: "linear",
+                fill: "forwards",
+              }
+            );
+
+            record.animation = animation;
+
+            animation.onfinish = () => {
+              item.remove();
+              active.delete(record);
+
+              // 关键：单条弹幕离场后，立即把自己的词语放回队列。
+              // 不需要等待其他弹幕离场。
+              remaining.push(text);
+
+              // 尽快尝试下一次发射。
+              scheduleNext(0);
+            };
+
+            // 下一条弹幕仍然按随机时间发射。
+            scheduleNext(random(MIN_DELAY, MAX_DELAY));
+          }
+
+          function resetAfterResize() {
+            // 尺寸变化后清除旧弹幕，避免轨道坐标失效。
+            for (const record of active) {
+              if (record.animation) {
+                record.animation.onfinish = null;
+                record.animation.cancel();
+              }
+
+              record.item.remove();
+            }
+
+            active.clear();
+
+            // 恢复全部词语，重新打乱顺序。
+            remaining = shuffle(phrases);
+
+            buildLanes();
+
+            // 重置轨道状态。
+            lanes.forEach((lane) => {
+              lane.availableAt = 0;
+            });
+
+            scheduleNext(300);
+          }
+
+          // 尊重系统的减少动态效果设置。
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            stopped = true;
+            container.replaceChildren();
+            return;
+          }
+
+          remaining = shuffle(phrases);
+          buildLanes();
+
+          resizeObserver = new ResizeObserver(() => {
+            resetAfterResize();
+          });
+
+          resizeObserver.observe(container);
+
+          scheduleNext(300);
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initHeroDanmaku, {
+            once: true,
+          });
+        } else {
+          initHeroDanmaku();
+        }
+      })();
     </script>
   </body>
 </html>
