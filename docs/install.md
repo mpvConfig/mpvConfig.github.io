@@ -1,6 +1,18 @@
 # 使用方法
 
-### 1. 先安装播放器
+### 1. 下载主题配置
+
+[🎯 点击去下载](https://github.com/akFace/mpv.config/releases) 你需要的主题皮肤，目前提供：
+
+- `modernz`
+- `modern_glass`
+- `uosc`
+
+📣 [查看主题预览](https://mpvConfig.github.io/docs/preview.html)
+
+每个主题皮肤压缩包均包含完整功能的配置，选择其中一个，下载后解压备用。
+
+### 2. 安装播放器
 
 - **Windows：**
   - [官方构建版本（推荐）](https://github.com/mpv-player/mpv/releases)
@@ -9,24 +21,12 @@
   - [mpv.net 版本](https://github.com/mpvnet-player/mpv.net/releases)
 - **macOS、Linux：** [mpv 官网下载](https://mpv.io/installation/)
 
-### 2. 下载主题配置
-
-[🎯 点击下载](https://github.com/akFace/mpv.config/releases) 你需要的主题皮肤，目前提供：
-
-- `modernz`
-- `modern_glass`
-- `uosc`
-
-📣 [查看主题预览](https://mpvConfig.github.io/docs/preview.html)
-
-每个主题皮肤压缩包均包含完整功能的配置，下载后解压。
-
 ### 3. 配置播放器
 
 **以下案例以 Windows 系统为例：**
 
 - 解压/安装播放器后，在播放器根目录(`mpv.exe` 同目录)下新建名为 `portable_config` 文件夹，作为 **_配置文件夹_**
-- 将解压出的全部文件复制到 **_配置文件夹_** (只能共存一个主题配置)，重启播放器即可
+- 将解前面压出的全部主题配置文件复制到 `portable_config` 文件夹 (只能共存一个主题配置)，重启播放器即可
 
 - **注意目录结构**
 

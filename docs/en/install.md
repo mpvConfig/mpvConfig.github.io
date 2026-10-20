@@ -1,15 +1,6 @@
 # Installation
 
-### 1. Install the Player
-
-- **Windows:**
-  - [Official Builds (Recommended)](https://github.com/mpv-player/mpv/releases)
-  - [Daily Builds (Recommended)](https://github.com/zhongfly/mpv-winbuild/releases)
-  - [shinchiro Builds](https://github.com/shinchiro/mpv-winbuild-cmake/releases)
-  - [mpv.net Builds](https://github.com/mpvnet-player/mpv.net/releases)
-- **macOS, Linux:** [Download from the official mpv website](https://mpv.io/installation/)
-
-### 2. Download the Theme Configuration
+### 1. Download the Theme Configuration
 
 [🎯 Click to Download](https://github.com/akFace/mpv.config/releases) the theme you need. The following themes are currently available:
 
@@ -23,11 +14,20 @@ Please download `xxx_en.zip` version, [How to add a localized language?](https:/
 
 Each theme archive contains a complete, fully functional configuration. Simply download and extract it.
 
+### 2. Install the Player
+
+- **Windows:**
+  - [Official Builds (Recommended)](https://github.com/mpv-player/mpv/releases)
+  - [Daily Builds (Recommended)](https://github.com/zhongfly/mpv-winbuild/releases)
+  - [shinchiro Builds](https://github.com/shinchiro/mpv-winbuild-cmake/releases)
+  - [mpv.net Builds](https://github.com/mpvnet-player/mpv.net/releases)
+- **macOS, Linux:** [Download from the official mpv website](https://mpv.io/installation/)
+
 ### 3. Configure the Player
 
 - **The following example uses Windows:**
-- After extracting/installing the player, create a new folder named `portable_config` in the player's root directory (the same directory as `mpv.exe`). This will be used as the **configuration folder**.
-- Copy all extracted files into the **configuration folder** (only one theme configuration can be used at a time), then restart the player.
+- After extracting/installing the player, create a new folder named `portable_config` in the player's root directory (the same directory as `mpv.exe`). This will be used as the **_Configuration Folder_**.
+- Copy all theme configuration files extracted in the first step to `portable_config` folder (only one theme configuration can be used at a time), then restart the player.
 
 - **Note the directory structure**
 
