@@ -8,7 +8,7 @@
 - `modern_glass`
 - `uosc`
 
-📣 [查看主题预览](https://mpvConfig.github.io/docs/preview.html)
+📣 [查看主题预览](./preview.md)
 
 每个主题皮肤压缩包均包含完整功能的配置，选择其中一个，下载后解压备用。
 

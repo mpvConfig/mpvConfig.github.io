@@ -22,7 +22,7 @@ Press `n` to cycle through the frame interpolation modes. Interpolation is disab
 
 ### VapourSynth MVTools Frame Interpolation
 
-- Easy to use, with one-click installation: [https://github.com/mpvConfig/mpvTools](https://github.com/mpvConfig/mpvTools)
+- Easy to use, with one-step installation: [https://github.com/mpvConfig/mpvTools](https://github.com/mpvConfig/mpvTools)
 
 ### Other Community Frame Interpolation Solutions on GitHub
 

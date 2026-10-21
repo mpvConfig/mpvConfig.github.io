@@ -29,3 +29,7 @@
 - Other shortcuts (some may be overridden by shortcuts in the right-click menu; actual behavior may vary):
 
 [![Keyboard Shortcuts](https://fastly.jsdelivr.net/gh/akFace/picx-images-hosting@master/Tools/mpbindings.4jowdjfi1h.webp)](https://fastly.jsdelivr.net/gh/akFace/picx-images-hosting@master/Tools/mpbindings.4jowdjfi1h.webp)
+
+## How to modify and add shortcut keys?
+
+- The shortcut key setting file can be seen by opening and editing `portable_config/input.conf`. Just refer to the settings (ask AI if you don’t understand)

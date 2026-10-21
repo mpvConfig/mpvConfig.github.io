@@ -8,11 +8,14 @@ hero:
   tagline: 一套开箱即用的 MPV 播放器配置：现代化主题、智能右键菜单、画质超分与常用插件。轻量、灵活，支持 Windows / macOS / Linux
   actions:
     - theme: brand
-      text: 立即开始
+      text: 立即安装
       link: /install
     - theme: alt
       text: 查看特性
-      link: https://mpvConfig.github.io/
+      link: https://mpvConfig.github.io
+    - theme: alt
+      text: 文档
+      link: /conf
 
 features:
   - title: 🎞 滤镜与超分

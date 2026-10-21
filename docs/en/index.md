@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: Explore Features
       link: https://mpvConfig.github.io/
+    - theme: alt
+      text: Docs
+      link: /en/conf
 
 features:
   - title: 🎞 Shaders & Upscaling

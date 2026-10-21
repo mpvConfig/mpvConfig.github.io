@@ -1,13 +1,16 @@
-# Common Settings & Documentation (Optional)
+# FAQ & Recommendations
 
-- Uosc Theme Options：[Uosc](https://github.com/tomasklaen/uosc#options)
-- ModernZ Theme Options：[ModernZ](https://github.com/Samillion/ModernZ#customization)
-- ModernGlass Theme Options：[ModernGlass](https://github.com/Demetter/ModernGlass/blob/main/docs/USER_OPTS.md)
-- Menu style custom document：[mpv-menu-plugin-next](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
-- The default danmaku style is configured in `script-opts/uosc_danmaku.conf`. To modify it, open the file with a text editor.
-- Danmaku-related configuration: [View the documentation](https://github.com/Tony15246/uosc_danmaku#%E7%9B%AE%E5%BD%95)
+- **How do I update to the latest version?** [Update Guide](./update.md)
+- **How to modify and add shortcuts?**  
+  The shortcut settings file is located at `portable_config/input.conf`. You can open and edit it to see the settings, and refer to them (if you don't understand, you can ask AI).
+- **What are the video enhancement options, and how do I use them?** [Shader Guide](./shaders.md) · [Frame Interpolation](./Interpolation.md)
+- **How can I add other frame interpolation methods?** [Frame Interpolation](./Interpolation.md)
+- **How do I adjust the UI size? It's too small or too large.** [Configuration Guide](./conf.md)
+- **How do I change the danmaku size? It's too small or too large.** [Configuration Guide](./conf.md)
+- **Danmaku won't load?** See [Related Issues](https://github.com/Tony15246/uosc_danmaku/issues).
+- **Danmaku playback smoothness:** My current display is 4K at 60 Hz. Enabling video frame synchronization (`display-resample`) makes danmaku smoother on my system. However, on some devices, enabling this setting may cause audio stuttering during playback at increased speeds, so it is disabled by default. To enable it, go to **Right-click Menu > Danmaku > Sync Video Frames**.
 
 ---
 
-- Directly play YouTube videos or other videos links: Install [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases), download yt-dlp.exe, and put it in the same directory as `mpv.exe`, that is, the player installation directory. Restart to paste the link to the video page directly
-- **Recommended:** Tampermonkey script 👉 [play-with-mpv - Play videos from web pages with mpv](https://github.com/akFace/play-with-mpv)
+- **Play Bilibili, YouTube, and other online videos by pasting a URL:** Install [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases), download `yt-dlp.exe`, and place it in the same directory as `mpv.exe` (the player installation directory). Restart the player, and you can paste video-page URLs directly into MPV. However, the browser extension below is recommended for a better experience.
+- **Recommended:** Tampermonkey users can install [play-with-mpv — Play Web Videos in MPV](https://github.com/akFace/play-with-mpv).
