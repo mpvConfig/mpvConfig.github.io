@@ -25,3 +25,4 @@
 
 - [https://github.com/MSalman5230/mpv-config](https://github.com/MSalman5230/mpv-config)
 - [https://github.com/hzwer/Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
+- [https://github.com/AmusementClub/vs-mlrt](https://github.com/AmusementClub/vs-mlrt)
