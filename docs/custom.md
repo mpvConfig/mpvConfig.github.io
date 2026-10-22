@@ -25,7 +25,7 @@ script-opts-append = "modernz-seekbarbg_color=#077d55"
 ```
 
 - 这样就可以改变 modernZ 的配置：`script-opts-append = modernz-layout=mini` 就是改变 modernz.conf 中 layout 的值
-- 语法：`script-opts-append = <脚本>-<脚本的选项>=<值> ` 这样可以修改 script-opts/文件夹下任何配置的值
+- 语法：`script-opts-append = <脚本文件名>-<脚本的选项>=<值> ` 这样可以修改 script-opts/文件夹下任何配置的值
 - 再比如：`script-opts-append = uosc_danmaku-fontsize=40` 这个就修改了 `uosc_danmaku.conf` 配置中的 fontsize 的值
 
 ---
@@ -48,6 +48,21 @@ script-opts-append = "modernz-hover_effect_color=#FF6699"
 # 鼠标按下按钮时的颜色
 script-opts-append = "modernz-held_element_color=#7C3AED"
 ```
+
+菜单大小设置
+
+```conf
+# 菜单选项高度
+script-opts-append = "menu_style-menu_item_height=44"
+# 全屏时 菜单选项高度
+script-opts-append = "menu_style-menu_item_height_fullscreen=48"
+# 菜单缩放倍数（应对大屏幕）
+script-opts-append = "menu_style-menu_font_scale=1"
+# macOS缩放补偿倍数
+script-opts-append = "menu_style-macos_font_scale=1.4"
+```
+
+- [查看更多菜单配置选项](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
 
 ## 自定义快捷键/菜单（`input.conf`）
 

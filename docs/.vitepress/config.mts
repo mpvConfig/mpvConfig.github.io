@@ -30,7 +30,9 @@ export default defineConfig({
       },
     ],
   ],
-
+  sitemap: {
+    hostname: "https://mpvconfig.github.io/docs/",
+  },
   markdown: {
     languageAlias: {
       conf: "ini", // 或者用 'bash'，取决于你的配置文件风格

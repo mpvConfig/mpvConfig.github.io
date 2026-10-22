@@ -48,6 +48,21 @@ script-opts-append = "modernz-hover_effect_color=#FF6699"
 script-opts-append = "modernz-held_element_color=#7C3AED"
 ```
 
+Menu size settings
+
+```conf
+# Menu item height
+script-opts-append = "menu_style-menu_item_height=44"
+# Menu item height in fullscreen
+script-opts-append = "menu_style-menu_item_height_fullscreen=48"
+# Menu scaling factor (for large screens)
+script-opts-append = "menu_style-menu_font_scale=1"
+# macOS scaling compensation factor
+script-opts-append = "menu_style-macos_font_scale=1.4"
+```
+
+- [View more menu configuration options](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
+
 ## Customize shortcuts and menus (`input.conf`)
 
 > Follow these steps:

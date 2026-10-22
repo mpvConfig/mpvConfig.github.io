@@ -1,6 +1,6 @@
-# 界面大小样式设置
+# 界面设置
 
-## 用户可自定义自己的界面效果（字体大小、颜色各种样式等）
+## 用户可自定义自己的界面效果（界面大小，字体大小、颜色各种样式等）
 
 > [!IMPORTANT]
 >
@@ -24,6 +24,7 @@
 
 - **菜单样式** 自定义文档：[mpv-menu-plugin-next](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)  
   文件位置：`script-opts/menu_style.conf`
+- [自定义配置](./custom.md)
 
 ---
 

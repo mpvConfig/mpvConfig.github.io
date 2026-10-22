@@ -27,6 +27,7 @@ You can customize the appearance of the interface, including font sizes, colors,
 
 - **Menu Styles** — Customization guide: [mpv-menu-plugin-next](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)  
   File location: `script-opts/menu_style.conf`
+- [Custom Configuration](./custom.md)
 
 ---
 
