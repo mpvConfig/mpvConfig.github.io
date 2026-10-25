@@ -27,6 +27,7 @@ script-opts-append = "modernz-seekbarbg_color=#077d55"
 - 这样就可以改变 modernZ 的配置：`script-opts-append = modernz-layout=mini` 就是改变 modernz.conf 中 layout 的值
 - 语法：`script-opts-append = <脚本文件名>-<脚本的选项>=<值> ` 这样可以修改 script-opts/文件夹下任何配置的值
 - 再比如：`script-opts-append = uosc_danmaku-fontsize=40` 这个就修改了 `uosc_danmaku.conf` 配置中的 fontsize 的值
+  > 以后要修改`script-opts/` 目录中的任意`.conf`文件，只需修改 `custom-opts.conf` 文件内容即可
 
 ---
 
