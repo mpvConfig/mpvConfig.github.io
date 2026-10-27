@@ -77,6 +77,7 @@ export default defineConfig({
               { text: "常见问题&推荐", link: "/faq" },
               { text: "预览截图", link: "/preview" },
               { text: "如何更新到最新版", link: "/update" },
+              { text: "下载方式", link: "/download" },
             ],
           },
         ],
