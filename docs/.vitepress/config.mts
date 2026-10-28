@@ -61,6 +61,19 @@ export default defineConfig({
         nav: [
           { text: "首页", link: "/" },
           { text: "查看特性", link: "https://mpvConfig.github.io/" },
+          {
+            text: "社区",
+            items: [
+              {
+                text: "Telegram",
+                link: "https://t.me/+rYLzi96XzoxjZDc1",
+              },
+              {
+                text: "QQ频道",
+                link: "https://pd.qq.com/s/cp5zsp7a4?b=9",
+              },
+            ],
+          },
         ],
         sidebar: [
           {
@@ -76,8 +89,8 @@ export default defineConfig({
               { text: "插帧/补帧相关", link: "/Interpolation" },
               { text: "常见问题&推荐", link: "/faq" },
               { text: "预览截图", link: "/preview" },
-              { text: "如何更新到最新版", link: "/update" },
               { text: "下载方式", link: "/download" },
+              { text: "如何更新到最新版", link: "/update" },
             ],
           },
         ],
@@ -93,6 +106,15 @@ export default defineConfig({
           {
             text: "View Features",
             link: "https://mpvConfig.github.io/",
+          },
+          {
+            text: "Community",
+            items: [
+              {
+                text: "Telegram",
+                link: "https://t.me/+rYLzi96XzoxjZDc1",
+              },
+            ],
           },
         ],
         sidebar: [
