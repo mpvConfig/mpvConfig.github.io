@@ -20,6 +20,7 @@
 
 - 操作简单，一键安装，立即前往安装 ⇢ [https://github.com/mpvConfig/mpvTools](https://github.com/mpvConfig/mpvTools)
 - 为了简化安装，我们做了脚本自动化处理，支持 Windows / Linux / macOS
+- 嫌麻烦也可以直接下载 ⇢ [mpv-插帧补帧功能插件安装包](./download.md)
 
 ### GitHub 社区其他插帧
 

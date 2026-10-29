@@ -27,6 +27,8 @@ script-opts-append = "modernz-seekbarbg_color=#077d55"
 - Syntax: `script-opts-append = <script>-<option>=<value>`. This can change values in configuration files under `script-opts/`.
 - For example, `script-opts-append = uosc_danmaku-fontsize=40` changes the `fontsize` value in `uosc_danmaku.conf`.
 
+> [!IMPORTANT]
+>
 > To modify any `.conf` file in the `script-opts/` directory in the future, just modify the contents of the `custom-opts.conf` file
 
 ---
