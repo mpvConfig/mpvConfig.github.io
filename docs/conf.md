@@ -38,3 +38,13 @@
 ## 主题颜色切换
 
 - 播放器内：`右键 > 工具 > 主题切换 > 选择主题`
+
+## 界面语言设置
+
+- 前提是已经内置了该语言 ⇢ [查看已经支持的语言](https://github.com/akFace/mpv.config/tree/main/src) | [How to add a localized language?](https://github.com/akFace/mpv.config/issues/31)
+- 文件位置：`portable_config/mpv.conf`（windows）
+- 打开 `mpv.conf` 文件第一行可以看到，修改对应的语言 code 即可，例如繁体中文（台湾）：
+
+```conf
+script-opts=modernz-language="zh-TW",uosc-languages="zh-TW"
+```

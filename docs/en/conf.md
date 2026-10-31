@@ -45,3 +45,13 @@ You can customize the appearance of the interface, including font sizes, colors,
 ## Switch Theme Colors
 
 - In the player, go to **Right-click Menu > Tools > Switch Theme > Select a Theme**.
+
+## UI Language Settings
+
+- The prerequisite is that the language is already built in ⇢ [View already supported languages](https://github.com/akFace/mpv.config/tree/main/src) | [How to add a localized language?](https://github.com/akFace/mpv.config/issues/31)
+- File location: `portable_config/mpv.conf` (Windows)
+- Open the `mpv.conf` file; you can see it on the first line. Just change the corresponding language code, for example, Traditional Chinese（TaiWan）:
+
+```conf
+script-opts=modernz-language="zh-TW",uosc-languages="zh-TW"
+```

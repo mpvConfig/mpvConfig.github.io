@@ -1,5 +1,6 @@
 # Common Keyboard Shortcuts
 
+- `p` — Open Recent Playlists
 - `Alt + f` — Search subtitles
 - `Ctrl + d` — Search danmaku
 - `d` — Show/hide danmaku

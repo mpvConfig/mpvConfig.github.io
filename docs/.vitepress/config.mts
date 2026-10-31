@@ -124,7 +124,7 @@ export default defineConfig({
               { text: "Installation", link: "/en/install" },
               { text: "Interface Settings", link: "/en/conf" },
               { text: "Custom Configuration", link: "/en/custom" },
-              { text: "Shortcuts", link: "/en/shortcuts" },
+              { text: "Keyboard Shortcuts", link: "/en/shortcuts" },
               { text: "Default Behavior", link: "/en/behavior" },
               { text: "Subtitles", link: "/en/subtitles" },
               { text: "Video Shader Guide", link: "/en/shaders" },
