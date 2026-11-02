@@ -10,9 +10,9 @@
 > - 为了达到在更新版本时直接覆盖不受影响，需要在不修改 mpv.conf 和任意`script-opts/xxx.conf` 的配置项的情况下改变其中的内容
 > - [相关 issue](https://github.com/akFace/mpv.config/issues/19)， 方案如下：
 
-1. 在 mpv.conf 同目录下创建文件并重命名为：custom-opts.conf
-2. 编辑 mpv.conf 配置，然后写入 `include = "~~/custom-opts.conf"`
-3. 编辑 custom-opts.conf 文件
+1. 在 `mpv.conf` 同目录下创建文件并重命名为：`custom-opts.conf`
+2. 编辑 `mpv.conf` 配置，然后写入 `include = "~~/custom-opts.conf"`
+3. 编辑 `custom-opts.conf` 文件
    写入需要自定义的内容，例如：
 
 ```conf
@@ -72,13 +72,13 @@ script-opts-append = "menu_style-macos_font_scale=1.4"
 
 > - 方案如下：
 
-1. 若要增加或者修改快捷键/菜单，请在 input.conf 文件同目录下，新建文件并重命名为：custom-input.conf，然后在里边增加或修改快捷键/菜单，写法和 input.conf 保持一致。
+1. 若要增加或者修改快捷键/菜单，请在 `input.conf` 文件同目录下，新建文件并重命名为：`custom-input.conf`，然后在里边增加或修改快捷键/菜单，写法和 `input.conf` 保持一致。
 2. 修改完后请在播放器中，按右键：工具 > 合并自定义快捷键/菜单 合并后重启播放器生效
-3. 这样做的目的是避免直接修改 input.conf 导致更新覆盖，丢失了自己新增/修改的内容。
+3. 这样做的目的是避免直接修改 `input.conf` 导致更新覆盖，丢失了自己新增/修改的内容。
 
 ### 一些技巧
 
-> [issues：#19](https://github.com/akFace/mpv.config/issues/19#issuecomment-5856332146) 怎么去除已有菜单项和快捷键？不直接编辑 input.conf，就无法注释了。
+> [issues：#19](https://github.com/akFace/mpv.config/issues/19#issuecomment-5856332146) 怎么去除已有菜单项和快捷键？不直接编辑 `input.conf`，就无法注释了。
 
 在 `custom-input.conf` 里，**没有办法“删除”`input.conf` 里的某条绑定**，但你完全可以用**重新绑定同一个键**来达到“覆盖”的效果。
 
@@ -106,3 +106,80 @@ Ctrl+s   ignore
 | 让某个键在菜单里消失     | `Ctrl+s  ignore`（不带 `#menu:` 注释，合并后菜单项也一并被替换掉） |
 | 让某个键改成执行别的命令 | `Ctrl+s  你的新命令`                                               |
 | 让某个键在特定条件下失效 | `Ctrl+s  ignore  #@state=(...)`（但通常不需要这么绕）              |
+
+## 组合式快捷配置
+
+1.  [`custom-opts.conf`](./custom.md) 文件内容
+
+```conf
+# my-profile 名称可随意取（以下为示例）
+[my-profile]
+profile-desc=启用组合式快捷配置1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+```
+
+2. [`custom-input.conf`](./custom.md#自定义快捷键-菜单-input-conf) 文件内容
+
+```conf
+Ctrl+p apply-profile my-profile #menu: 工具 > 启用自定义的profile
+```
+
+- 修改完后请在播放器中，按右键：工具 > 合并自定义快捷键/菜单 合并后重启播放器生效
+
+- 效果说明：  
+   按下快捷键 `Ctrl+p`，启用 my-profile 中所有设置的内容：
+  ```
+  设置为全屏
+  音量为 80
+  并设置对应的滤镜
+  ```
+
+---
+
+允许多个 profile 共存
+
+```conf
+# custom-opts.conf
+# my-profile 名称可随意取（以下为示例）
+[my-profile-1]
+profile-desc=启用组合式快捷配置1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+
+[my-profile-2]
+profile-desc=启用组合式快捷配置2
+speed=1.2
+volume=50
+# 视频滤镜
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+# open-svpflow 插帧/补帧
+vf=vapoursynth="~~/vs/open-svpflow-hq.vpy"
+```
+
+```conf
+# custom-input.conf
+Ctrl+p apply-profile my-profile-1 #menu: 工具 > 启用 my-profile1
+Ctrl+m apply-profile my-profile-2 #menu: 工具 > 启用 my-profile2
+```
+
+询问问 AI 模板示例：
+
+```
+# 参照这个 profile 帮我写个mpv组合配置 profile，并增加快捷键`Alt+m`绑定,功能如下：
+- 开启音量 40
+- 设置全屏
+- 亮度调节为 5
+- 对比度调节为 8
+- 播放速度为 1.5 倍速
+- 字幕颜色 黄色
+- 字幕大小为 30
+以下是profile示例：
+[my-profile-1]
+profile-desc=启用组合式快捷配置1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+```

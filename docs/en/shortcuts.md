@@ -34,3 +34,4 @@
 ## How to modify and add shortcut keys?
 
 - The shortcut key setting file can be seen by opening and editing `portable_config/input.conf`. Just refer to the settings (ask AI if you don’t understand)
+- How to set a shortcut key to enable a combined configuration with one press, for example enabling multiple video filters together + turning on frame interpolation? [Link](./custom.md#combined-quick-configuration)

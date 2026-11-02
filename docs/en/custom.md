@@ -105,3 +105,81 @@ After merging, the `Ctrl+s` line will be replaced with `Ctrl+s ignore`, so the k
 | Hide a key from the menu                | `Ctrl+s  ignore` (omit the `#menu:` comment; the menu entry is replaced too) |
 | Make a key run another command          | `Ctrl+s  your-new-command`                                                   |
 | Disable a key under specific conditions | `Ctrl+s  ignore  #@state=(...)` (usually unnecessary)                        |
+
+## Combined Quick Configuration
+
+1. Contents of the [`custom-opts.conf`](./custom.md) file
+
+```conf
+# The name "my-profile" can be anything (the following is an example)
+[my-profile]
+profile-desc=Enable combined quick configuration 1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+```
+
+2. Contents of the [`custom-input.conf`](./custom.md#customize-shortcuts-and-menus-input-conf) file
+
+```conf
+Ctrl+p apply-profile my-profile #menu: Tools > Enable custom profile
+```
+
+- After making changes, in the player, right-click: Tools > Merge custom shortcuts/menus, then restart the player for the changes to take effect
+
+- Effect description:  
+   Press the shortcut `Ctrl+p` to enable all the settings in my-profile:
+  ```
+  Set to fullscreen
+  Volume to 80
+  And set the corresponding filters
+  ```
+
+---
+
+Multiple profiles are allowed to coexist
+
+```conf
+# custom-opts.conf
+# The name "my-profile" can be anything (the following is an example)
+[my-profile-1]
+profile-desc=Enable combined quick configuration 1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+
+[my-profile-2]
+profile-desc=Enable combined quick configuration 2
+speed=1.2
+volume=50
+# Video filters
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+# open-svpflow frame interpolation
+vf=vapoursynth="~~/vs/open-svpflow-hq.vpy"
+```
+
+```conf
+# custom-input.conf
+Ctrl+p apply-profile my-profile-1 #menu: Tools > Enable my-profile1
+Ctrl+m apply-profile my-profile-2 #menu: Tools > Enable my-profile2
+```
+
+Prompt template example for asking AI:
+
+```
+# Based on this profile, write me an mpv combined configuration profile and add a shortcut `Alt+m` binding, with the following features:
+- Set volume to 40
+- Set fullscreen
+- Set brightness to 5
+- Set contrast to 8
+- Set playback speed to 1.5x
+- Set subtitle color to yellow
+- Set subtitle size to 30
+
+Below is the profile example:
+[my-profile-1]
+profile-desc=Enable combined quick configuration 1
+fullscreen=yes
+volume=80
+glsl-shaders="~~/shaders/Anime4K_Restore_CNN_M.glsl;~~/shaders/adaptive_sharpen_RT.glsl;~~/shaders/CfL_Prediction_RT.glsl"
+```

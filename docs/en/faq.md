@@ -7,6 +7,7 @@
 - **How can I add other frame interpolation methods?** [Frame Interpolation](./Interpolation.md)
 - **How do I adjust the UI size? It's too small or too large.** [Configuration Guide](./conf.md)
 - **How do I change the danmaku size? It's too small or too large.** [Configuration Guide](./conf.md)
+- **How to set a shortcut key to enable a combined configuration with one press, for example enabling multiple video filters together + turning on frame interpolation?** [Link](./custom.md#combined-quick-configuration)
 - **Danmaku won't load?** See [Related Issues](https://github.com/Tony15246/uosc_danmaku/issues).
 - **Danmaku playback smoothness:** My current display is 4K at 60 Hz. Enabling video frame synchronization (`display-resample`) makes danmaku smoother on my system. However, on some devices, enabling this setting may cause audio stuttering during playback at increased speeds, so it is disabled by default. To enable it, go to **Right-click Menu > Danmaku > Sync Video Frames**.
 
