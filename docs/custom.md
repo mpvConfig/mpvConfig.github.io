@@ -165,7 +165,7 @@ Ctrl+p apply-profile my-profile-1 #menu: 工具 > 启用 my-profile1
 Ctrl+m apply-profile my-profile-2 #menu: 工具 > 启用 my-profile2
 ```
 
-询问问 AI 模板示例：
+询问 AI 模板示例：
 
 ```
 # 参照这个 profile 帮我写个mpv组合配置 profile，并增加快捷键`Alt+m`绑定,功能如下：

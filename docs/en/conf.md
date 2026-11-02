@@ -31,6 +31,25 @@ You can customize the appearance of the interface, including font sizes, colors,
 
 ---
 
+Prompt template example for asking AI:
+
+- Example: Modifying modernz
+- Upload the config file `modernz.conf` to the AI chat box
+
+```
+# Based on this file `modernz.conf`, help me modify the following:
+- Played progress bar color to pink
+- Unplayed progress bar color to gray
+- The small button on the progress bar to white
+- Button color on mouse hover to green
+- Button color on mouse click to dark green
+- Title size to 30
+```
+
+> AI is not omnipotent; for key information you still need to consult the documentation yourself.
+
+---
+
 - **Subtitles** — See the [subtitles](https://mpv.io/manual/master/#subtitles)
 
 ---
