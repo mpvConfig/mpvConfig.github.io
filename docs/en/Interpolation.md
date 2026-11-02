@@ -18,7 +18,9 @@ Press `n` to cycle through the frame interpolation modes. Interpolation is disab
 ## Frame Interpolation Using Plugins
 
 > [!TIP]
-> Not included in the default package. If needed, install one of the options below by following the relevant instructions.
+>
+> Not included in the default package. If needed, install one of the options below by following the relevant instructions.  
+> The plugin-based frame interpolation method is smoother than the built-in one, but it requires a higher-performance computer.
 
 ### VapourSynth MVTools Frame Interpolation
 
