@@ -28,6 +28,6 @@ Press `n` to cycle through the frame interpolation modes. Interpolation is disab
 
 ### Other Community Frame Interpolation Solutions on GitHub
 
-- [https://github.com/askasys-code/mpv-rtx](https://github.com/askasys-code/mpv-rtx)
 - [https://github.com/hzwer/Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
 - [https://github.com/AmusementClub/vs-mlrt](https://github.com/AmusementClub/vs-mlrt)
+- [https://github.com/askasys-code/mpv-rtx](https://github.com/askasys-code/mpv-rtx)

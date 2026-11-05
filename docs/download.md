@@ -22,5 +22,5 @@
 | 插帧补帧插件（可选） |                                                                                                                      |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
 |                      | 压缩包内有详细使用教程（超简单）                                                                                     |
-| 夸克云盘             | [https://pan.quark.cn/s/3e56b46746bc](https://pan.quark.cn/s/3e56b46746bc)                                           |
-| 百度云盘             | [https://pan.baidu.com/s/1ITs3HR_7EXIYMQhthKnX2g?pwd=uea7](https://pan.baidu.com/s/1ITs3HR_7EXIYMQhthKnX2g?pwd=uea7) |
+| 夸克云盘             | [https://pan.quark.cn/s/a8d6e75e49c8](https://pan.quark.cn/s/a8d6e75e49c8)                                           |
+| 百度云盘             | [https://pan.baidu.com/s/1hYDIQ0rA2fOX6lebg3UfLg?pwd=4nuu](https://pan.baidu.com/s/1hYDIQ0rA2fOX6lebg3UfLg?pwd=4nuu) |

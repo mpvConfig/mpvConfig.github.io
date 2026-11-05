@@ -24,6 +24,6 @@
 
 ### GitHub 社区其他插帧
 
-- [https://github.com/askasys-code/mpv-rtx](https://github.com/askasys-code/mpv-rtx)
 - [https://github.com/hzwer/Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
 - [https://github.com/AmusementClub/vs-mlrt](https://github.com/AmusementClub/vs-mlrt)
+- [https://github.com/askasys-code/mpv-rtx](https://github.com/askasys-code/mpv-rtx)
