@@ -55,11 +55,15 @@ script-opts-append = "modernz-held_element_color=#7C3AED"
 Menu size settings
 
 ```conf
-# Menu item height
-script-opts-append = "menu_style-menu_item_height=44"
-# Menu item height in fullscreen
-script-opts-append = "menu_style-menu_item_height_fullscreen=48"
-# Menu scaling factor (for large screens)
+# Set menu size, menu item height
+script-opts-append = "menu_style-menu_item_height=30"
+# Scale factor in windowed mode
+script-opts-append = "menu_style-scale=1"
+# Scale factor in fullscreen
+script-opts-append = "menu_style-scale_fullscreen=1.2"
+# Set font size, as a percentage of menu item height; recommended to be less than 1
+script-opts-append = "menu_style-font_size_ratio=0.54"
+# Menu font scaling factor (for large screens)
 script-opts-append = "menu_style-menu_font_scale=1"
 # macOS scaling compensation factor
 script-opts-append = "menu_style-macos_font_scale=1.4"
@@ -75,13 +79,23 @@ script-opts-append = "menu_style-macos_font_scale=1.4"
 2. After editing, in the player right-click menu, select **Tools > Merge custom shortcuts/menus**. Restart the player for the changes to take effect.
 3. This prevents your additions or modifications from being lost when an update overwrites `input.conf`.
 
+### Delete Menu Items (Version >= v1.9.30)
+
+- Use `#rm_menu: menu path` to delete matching menu items; `*` matches any characters.
+
+For example:
+
+```conf
+_ ignore #rm_menu: Tools > mpvnet Features > *
+```
+
 ### Tips
 
 > Issue [#19](https://github.com/akFace/mpv.config/issues/19#issuecomment-5856332146): How can you remove existing menu items and shortcuts? Without editing `input.conf` directly, you cannot simply comment them out.
 
 In `custom-input.conf`, you cannot directly “delete” a binding from `input.conf`, but you can **override it by binding the same key again**.
 
-### ✅ Example: rebind the same key
+#### ✅ Example: rebind the same key
 
 For example, if `input.conf` contains:
 
@@ -97,7 +111,7 @@ Ctrl+s   ignore
 
 After merging, the `Ctrl+s` line will be replaced with `Ctrl+s ignore`, so the key does nothing.
 
-### 📋 Examples of common “removal” scenarios
+#### 📋 Examples of common “removal” scenarios
 
 | Desired result                          | Entry in `custom-input.conf`                                                 |
 | --------------------------------------- | ---------------------------------------------------------------------------- |

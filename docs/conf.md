@@ -24,7 +24,7 @@
 
 - **菜单样式** 自定义文档：[mpv-menu-plugin-next](https://github.com/mpvConfig/mpv-menu-plugin-next/blob/main/doc/README.md#menu_styleconf-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)  
   文件位置：`script-opts/menu_style.conf`
-- [自定义配置](./custom.md)
+- 可参考 ⇢ [自定义配置](./custom.md) 菜单选项内容
 
 ---
 
@@ -37,10 +37,10 @@
 
 - 示例：修改 modernz
 - 把配置文件`modernz.conf`上传到 AI 聊天框
-- 复制示例后注意修改对应的文件名以及文档链接
+- 复制示例后注意修改对应的文件名，必要时可发送文档链接给 AI
 
 ```
-# 根据这份文件 `modernz.conf`，以及 modernz 文档链接：https://github.com/Samillion/ModernZ/blob/main/docs/USER_OPTS.md 帮我修改：
+# 根据这份文件 `modernz.conf` 帮我修改：
 - 已播放进度条颜色为 粉色
 - 未播放进度条颜色为 灰色
 - 进度条上的小按钮为 白色

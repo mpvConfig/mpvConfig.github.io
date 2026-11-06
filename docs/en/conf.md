@@ -35,10 +35,10 @@ Prompt template example for asking AI:
 
 - Example: Modifying modernz
 - Upload the config file `modernz.conf` to the AI chat box
-- After copying the prompt template example, be sure to update the corresponding file names and docs links.
+- After copying the prompt template example, be sure to update the corresponding file names.
 
 ```
-# Based on this file `modernz.conf`, and modernz docs：https://github.com/Samillion/ModernZ/blob/main/docs/USER_OPTS.md, help me modify the following:
+# Based on this file `modernz.conf`, help me modify the following:
 - Played progress bar color to pink
 - Unplayed progress bar color to gray
 - The small button on the progress bar to white

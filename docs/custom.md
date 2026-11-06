@@ -56,11 +56,15 @@ script-opts-append = "modernz-held_element_color=#7C3AED"
 菜单大小设置
 
 ```conf
-# 菜单选项高度
-script-opts-append = "menu_style-menu_item_height=44"
-# 全屏时 菜单选项高度
-script-opts-append = "menu_style-menu_item_height_fullscreen=48"
-# 菜单缩放倍数（应对大屏幕）
+# 设置菜单大小，菜单选项高度
+script-opts-append = "menu_style-menu_item_height=30"
+# 窗口时 缩放倍数
+script-opts-append = "menu_style-scale=1"
+# 全屏时 缩放倍数
+script-opts-append = "menu_style-scale_fullscreen=1.2"
+# 设置字体大小，菜单选项高度的百分比，建议小于1
+script-opts-append = "menu_style-font_size_ratio=0.54"
+# 菜单字体缩放倍数（应对大屏幕）
 script-opts-append = "menu_style-menu_font_scale=1"
 # macOS缩放补偿倍数
 script-opts-append = "menu_style-macos_font_scale=1.4"
@@ -76,13 +80,23 @@ script-opts-append = "menu_style-macos_font_scale=1.4"
 2. 修改完后请在播放器中，按右键：工具 > 合并自定义快捷键/菜单 合并后重启播放器生效
 3. 这样做的目的是避免直接修改 `input.conf` 导致更新覆盖，丢失了自己新增/修改的内容。
 
+### 删除菜单选项（Version >= v1.9.30）
+
+- 使用 `#rm_menu: 菜单路径` 删除匹配的菜单项，`*` 可匹配任意字符。
+
+例如：
+
+```conf
+_ ignore #rm_menu: 工具 > mpvnet 功能 > *
+```
+
 ### 一些技巧
 
 > [issues：#19](https://github.com/akFace/mpv.config/issues/19#issuecomment-5856332146) 怎么去除已有菜单项和快捷键？不直接编辑 `input.conf`，就无法注释了。
 
 在 `custom-input.conf` 里，**没有办法“删除”`input.conf` 里的某条绑定**，但你完全可以用**重新绑定同一个键**来达到“覆盖”的效果。
 
-### ✅ 做法：用同一个键重新绑定
+#### ✅ 做法：用同一个键重新绑定
 
 比如 `input.conf` 里有：
 
@@ -98,7 +112,7 @@ Ctrl+s   ignore
 
 合并后，`input.conf` 里 `Ctrl+s` 那行会被替换成 `Ctrl+s ignore`，这个键就什么都不做了。
 
-### 📋 各种“删除”场景的写法
+#### 📋 各种“删除”场景的写法
 
 | 想达到的效果             | 在 custom-input.conf 里写                                          |
 | ------------------------ | ------------------------------------------------------------------ |
