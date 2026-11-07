@@ -65,8 +65,8 @@ export default defineConfig({
             text: "社区",
             items: [
               {
-                text: "Telegram",
-                link: "https://t.me/+rYLzi96XzoxjZDc1",
+                text: "Discord",
+                link: "https://discord.gg/w57t6m6jWu",
               },
               {
                 text: "QQ频道",
@@ -111,8 +111,8 @@ export default defineConfig({
             text: "Community",
             items: [
               {
-                text: "Telegram",
-                link: "https://t.me/+rYLzi96XzoxjZDc1",
+                text: "Discord",
+                link: "https://discord.gg/w57t6m6jWu",
               },
             ],
           },

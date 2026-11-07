@@ -2,7 +2,7 @@
 
 - **How do I update to the latest version?** [Update Guide](./update.md)
 - **How to modify and add shortcuts?**  
-  The shortcut settings file is located at `portable_config/input.conf`. You can open and edit it to see the settings, and refer to them (if you don't understand, you can ask AI).
+  The shortcut settings file is located at `input.conf`. You can open and edit it to see the settings, and refer to them (if you don't understand, you can ask AI).
 - **What are the video enhancement options, and how do I use them?** [Shader Guide](./shaders.md) · [Frame Interpolation](./Interpolation.md)
 - **How can I add other frame interpolation methods?** [Frame Interpolation](./Interpolation.md)
 - **How do I adjust the UI size? It's too small or too large.** [Configuration Guide](./conf.md)

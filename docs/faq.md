@@ -1,8 +1,8 @@
-# 一些常用设置&推荐
+# 常见问题&推荐
 
 - 如何更新到最新版：[Link](./update.md)
 - 怎么修改和增加快捷键？  
-  快捷键设置文件在 `/input.conf` 打开编辑可看到，参考其中的设置即可（不懂可问 AI）
+  快捷键设置文件 `input.conf` 打开编辑可看到，参考其中的设置即可（不懂可问 AI）
 - 视频增强里边都是什么？怎么使用？：[滤镜](./shaders.md)、[插帧模式](./Interpolation.md)
 - 怎么增加别的插帧功能？：[插帧模式](./Interpolation.md)
 - 怎么设置界面，太小了或者太大了？：[Link](./conf.md)
@@ -10,6 +10,18 @@
 - 如何设置快捷键一键启用某个组合配置，比如多个视频滤镜一起启用 + 开启插帧/补帧？ [Link](./custom.md#组合式快捷配置)
 - 弹幕没法加载？ [相关问题](https://github.com/Tony15246/uosc_danmaku/issues)
 - **关于弹幕流畅度问题**，目前本人的设备屏幕是 4k60hz，要打开视频同步帧 `display-resample` 才流畅，但有些用户的设备打开此设置开倍速播放会导致声音卡问题，因此现在默认关闭，需要打开的：右键菜单 > 弹幕 > 同步视频帧 即可
+- **mpv 配置文件在什么地方（目录路径）？**
+  ⇣ ⇣
+
+  Windows：`mpv/portable_config/`
+
+  macOS、Linux 、Windows 全局配置文件夹路径：
+
+  ```
+  macOS:   ~/Library/Application Support/mpv/
+  Linux:   ~/.config/mpv/
+  Windows: C:/Users/%username%/AppData/Roaming/mpv/
+  ```
 
 ---
 
