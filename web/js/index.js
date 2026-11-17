@@ -38,7 +38,7 @@ const copy = {
     f2Desc: "可视化调节 EQ、声道、色彩、解码方式与自动 HDR。",
     f3Title: "字幕与弹幕",
     f3Desc: "集成在线中文字幕搜索、弹幕加载与进度条缩略图预览。",
-    f4Title: "更多播放方式",
+    f4Title: "更多功能",
     f4Desc: "支持插帧/补帧、360° VR 全景视频，并可切换主题配色。",
     menuCaption: "右键菜单预览 · 多种菜单样式与主题配色可选",
     featuresKicker: "BUILT FOR EVERYDAY VIEWING",
@@ -155,13 +155,17 @@ let lang = (navigator.language || navigator.userLanguage || "")
 function setLang(next) {
   lang = next;
   const danmaku = document.querySelector(".hero-danmaku");
-  const downloadLink = document.getElementById("downloadLink");
+  const downloadLink = document.querySelectorAll(".downloadLink");
   if (lang === "zh") {
     danmaku.style.display = "block";
-    downloadLink.href = "https://mpvConfig.github.io/docs/download";
+    downloadLink.forEach((link) => {
+      link.href = "https://mpvConfig.github.io/docs/download";
+    });
   } else {
     danmaku.style.display = "none";
-    downloadLink.href = "https://github.com/akFace/mpv.config/releases/latest";
+    downloadLink.forEach((link) => {
+      link.href = "https://github.com/akFace/mpv.config/releases/latest";
+    });
   }
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   document.querySelectorAll("[data-i18n]").forEach((el) => {
