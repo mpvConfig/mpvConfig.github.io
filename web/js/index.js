@@ -155,12 +155,13 @@ let lang = (navigator.language || navigator.userLanguage || "")
 function setLang(next) {
   lang = next;
   const danmaku = document.querySelector(".hero-danmaku");
+  const downloadLink = document.getElementById("downloadLink");
   if (lang === "zh") {
-    document.getElementById("quarkDownload").style.display = "inline-flex";
     danmaku.style.display = "block";
+    downloadLink.href = "https://mpvConfig.github.io/docs/download";
   } else {
     danmaku.style.display = "none";
-    document.getElementById("quarkDownload").style.display = "none";
+    downloadLink.href = "https://github.com/akFace/mpv.config/releases/latest";
   }
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -183,9 +184,9 @@ function setLang(next) {
             ? "720p 画面对比滑块"
             : "1080p 画面对比滑块"
           : i === 0
-          ? "720p image comparison slider"
-          : "1080p image comparison slider"
-      )
+            ? "720p image comparison slider"
+            : "1080p image comparison slider",
+      ),
     );
 }
 setLang(lang);
@@ -335,7 +336,7 @@ document.addEventListener("keydown", (e) => {
     function buildLanes() {
       const count = Math.max(
         1,
-        Math.floor(container.clientHeight / LINE_HEIGHT)
+        Math.floor(container.clientHeight / LINE_HEIGHT),
       );
 
       lanes = Array.from({ length: count }, (_, i) => ({
@@ -436,7 +437,7 @@ document.addEventListener("keydown", (e) => {
           duration,
           easing: "linear",
           fill: "forwards",
-        }
+        },
       );
 
       record.animation = animation;

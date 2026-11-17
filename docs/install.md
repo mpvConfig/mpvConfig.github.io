@@ -2,7 +2,9 @@
 
 ### 1. 下载主题配置
 
-[🎯 点击去下载](https://github.com/akFace/mpv.config/releases) 你需要的主题皮肤，目前提供：
+**不想折腾以下教程的 ⇢ 下载懒人整合安装包解压直接用 [📦 点击去下载整合包](./download.md)**
+
+[📦 点击去下载](https://github.com/akFace/mpv.config/releases) 你需要的主题皮肤，目前提供：
 
 - `modernz`
 - `modern_glass`
