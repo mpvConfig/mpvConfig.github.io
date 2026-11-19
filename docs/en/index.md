@@ -17,7 +17,7 @@ hero:
       text: Docs
       link: /en/conf
   image:
-    src: ../images/logo-main.svg
+    src: https://mpvconfig.github.io/images/logo-main.svg
     alt: mpv.config
 
 features:
