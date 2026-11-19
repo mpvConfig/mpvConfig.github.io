@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: Docs
       link: /en/conf
+  image:
+    src: ../images/logo-main.svg
+    alt: mpv.config
 
 features:
   - title: 🎞 Shaders & Upscaling

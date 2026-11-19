@@ -16,6 +16,10 @@ hero:
     - theme: alt
       text: 文档
       link: /conf
+  image:
+    src: ./images/logo-main.svg
+    alt: mpv.config
+    text: "mpv.config"
 
 features:
   - title: 🎞 滤镜与超分

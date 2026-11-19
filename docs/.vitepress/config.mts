@@ -43,10 +43,10 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    editLink: {
-      pattern:
-        "https://github.com/mpvConfig/mpvConfig.github.io/blob/main/docs/:path",
-    },
+    // editLink: {
+    //   pattern:
+    //     "https://github.com/mpvConfig/mpvConfig.github.io/blob/main/docs/:path",
+    // },
     socialLinks: [
       { icon: "github", link: "https://github.com/akFace/mpv.config" },
     ],
@@ -98,7 +98,7 @@ export default defineConfig({
     },
     en: {
       label: "English-MT",
-      lang: "en-US",
+      lang: "en",
       dir: "ltr",
       themeConfig: {
         nav: [
