@@ -12,3 +12,7 @@
 ![image](https://github.com/akFace/mpv.config/raw/main/docs/images/Snipaste_2026-09-02_22-31-00.jpg)
 **uosc** 👇
 ![image](https://github.com/akFace/mpv.config/raw/main/docs/images/Snipaste_2026-08-24_03-00-53.jpg)
+
+### Audio Visualizer
+
+## ![Audio Visualizer](https://github.com/akFace/mpv.config/raw/main/docs/images/visualizer.gif)

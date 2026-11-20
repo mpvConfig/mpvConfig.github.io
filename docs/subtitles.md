@@ -2,7 +2,7 @@
 
 ## 在线字幕
 
-若遇到无法加载的情况，请 portable_config/script-opts 目录下创建`sub_assrt.conf`文件，然后复制以下代码到文件中
+若遇到无法加载的情况，请 `xxx/script-opts/` 目录下创建`sub_assrt.conf`文件，然后复制以下代码到文件中
 
 ```conf
 # API token, 可以在 https://assrt.net 上注册账号后在个人界面API密钥获取
@@ -28,4 +28,4 @@ sub-color="#dadee3"
 sub-font-size=36
 ```
 
-[mpv subtitles](https://mpv.io/manual/master/#subtitles)
+- [mpv subtitles](https://mpv.io/manual/master/#subtitles)

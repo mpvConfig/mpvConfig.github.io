@@ -76,7 +76,7 @@ Prompt template example for asking AI:
 - 1. Open the `mpv.conf` file; you can see it on the first line. Just change the corresponding language code, for example, Traditional Chinese (Taiwan):
 
 ```conf
-script-opts=modernz-language="zh-TW",uosc-languages="zh-TW"
+script-opts=logo-language="zh-TW",modernz-language="zh-TW",uosc-languages="zh-TW"
 ```
 
 - 2. Download the corresponding language ⇢ [ input_xxx.conf ](https://github.com/akFace/mpv.config/tree/main/src) and rename it to `input.conf`, then overwrite it into the config folder (the same directory as `mpv.conf`)

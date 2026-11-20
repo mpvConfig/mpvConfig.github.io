@@ -66,10 +66,10 @@
 
 **设置步骤**
 
-- 1. 打开 `mpv.conf` 文件第一行可以看到，修改对应的语言 code 即可，例如繁体中文（台湾）：
+- 1. 打开 `mpv.conf` 文件第一行可以看到，修改对应的语言 code，例如繁体中文（台湾）：
 
 ```conf
-script-opts=modernz-language="zh-TW",uosc-languages="zh-TW"
+script-opts=logo-language="zh-TW",modernz-language="zh-TW",uosc-languages="zh-TW"
 ```
 
 - 2. 下载对应语言的 ⇢ [ input_xxx.conf ](https://github.com/akFace/mpv.config/tree/main/src) 并重命名为 `input.conf`，然后覆盖到配置文件夹（与`mpv.conf` 同级目录）

@@ -5,7 +5,7 @@ const copy = {
     navThemes: "主题",
     navMenu: "菜单",
     download: "↓ 前往下载",
-    eyebrow: "为 mpv 打造的完整体验",
+    eyebrow: "为 mpv 播放器打造的完整体验",
     heroTitle: '让每一帧，<span class="grad">更出色。</span>',
     heroDesc:
       "一套开箱即用的 MPV 播放器配置：现代化主题、智能右键菜单、Anime4K 超分、插帧/补帧、在线弹幕与常用插件。轻量、灵活，支持 Windows / macOS / Linux。",
@@ -40,7 +40,9 @@ const copy = {
     f3Desc: "集成在线中文字幕搜索、弹幕加载与进度条缩略图预览。",
     f4Title: "更多功能",
     f4Desc: "支持插帧/补帧、360° VR 全景视频，并可切换主题配色。",
-    menuCaption: "右键菜单预览 · 多种菜单样式与主题配色可选",
+    f5Title: "音乐频谱",
+    f5Desc: "支持音乐可视化频谱",
+    menuCaption: "右键菜单预览 · 多种菜单样式与主题配色可选 | 音乐可视化频谱",
     featuresKicker: "BUILT FOR EVERYDAY VIEWING",
     featuresTitle: "轻量配置，完整体验。",
     featuresDesc:
@@ -71,7 +73,7 @@ const copy = {
     navThemes: "Themes",
     navMenu: "Menu",
     download: "↓ Download",
-    eyebrow: "A complete experience for mpv",
+    eyebrow: "A complete experience for mpv player",
     heroTitle: 'Make every frame <span class="grad">stand out.</span>',
     heroDesc:
       "A ready-to-use mpv player configuration with modern themes, a powerful context menu, Anime4K upscaling, Frame Interpolation and useful plugins. Lightweight and flexible on Windows, macOS and Linux.",
@@ -114,8 +116,10 @@ const copy = {
     f4Title: "More Ways to Play",
     f4Desc:
       "Frame interpolation, 360° VR video support and live theme color switching.",
+    f5Title: "Audio Visualizer",
+    f5Desc: "Support for music visualization spectrum.",
     menuCaption:
-      "Context menu preview · Multiple menu styles and color schemes",
+      "Context menu preview · Multiple menu styles and color schemes | Audio Visualizer",
     featuresKicker: "BUILT FOR EVERYDAY VIEWING",
     featuresTitle: "Lightweight setup. Full experience.",
     featuresDesc:

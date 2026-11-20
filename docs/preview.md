@@ -53,7 +53,9 @@
 
 </details>
 
----
+### 音乐可视化频谱
+
+## ![音乐可视化频谱](https://github.com/akFace/mpv.config/raw/main/docs/images/visualizer.gif)
 
 ### 支持可视化均衡器 eq
 
